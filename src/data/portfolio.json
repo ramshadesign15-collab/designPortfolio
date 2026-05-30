@@ -1,0 +1,801 @@
+{
+  "profile": {
+    "name": "Ramsha Ansari",
+    "shortName": "Ramsha",
+    "tagline": "I turn heritage art into textiles people live with  scrolls, cushions, and surfaces with a story.",
+    "role": "Textile & Surface Designer",
+    "specialization": "Surface Design · Home Décor · Heritage Craft",
+    "location": "Jodhpur · Jaipur, India",
+    "bio": "I'm a final-year Textile Design student (B.Des) at Government Women Polytechnic College, Jaipur, with a deep love for surface design, home décor, and artistic storytelling. My work blends heritage art  Madhubani, Pichwai, Bani Thani, and blue pottery  with contemporary interiors and thoughtful craftsmanship. With a keen eye for colour harmony, motif development, and material exploration, I create pieces that connect tradition with modern living.",
+    "resume": "/assets/resume.pdf",
+    "social": {
+      "email": "ansari.ramsha2003@gmail.com",
+      "phone": "+91 94687 65366"
+    }
+  },
+  "stats": [
+    {
+      "value": "3+",
+      "label": "Years Designing"
+    },
+    {
+      "value": "3",
+      "label": "Signature Collections"
+    },
+    {
+      "value": "Rank 1",
+      "label": "B.Des · 9.97 CGPA"
+    }
+  ],
+  "skills": {
+    "categories": [
+      {
+        "name": "Design & Concept",
+        "items": [
+          "Surface Design",
+          "Motif Development",
+          "Mood & Theme Boards",
+          "Concept & Storytelling",
+          "Colour Harmony"
+        ]
+      },
+      {
+        "name": "Craft & Hands-on",
+        "items": [
+          "Sketching & Painting",
+          "Dyeing & Printing",
+          "Hand Embroidery",
+          "Patchwork",
+          "Fabric Development"
+        ]
+      },
+      {
+        "name": "Tools",
+        "items": [
+          "Adobe Photoshop",
+          "Adobe Illustrator",
+          "CorelDRAW",
+          "Canva",
+          "MS PowerPoint",
+          "MS Word"
+        ]
+      },
+      {
+        "name": "Professional",
+        "items": [
+          "Project Management",
+          "Leadership",
+          "Effective Communication",
+          "Fabric Knowledge"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": "exp-tc",
+      "company": "Textiles Committee, Ministry of Textiles",
+      "role": "Design & Testing Intern",
+      "period": "2025 · 45 Days",
+      "location": "Jaipur",
+      "summary": "A government-body internship focused on textile quality and testing standards.",
+      "highlights": [
+        "Hands-on with textile testing machines and fabric quality analysis",
+        "Learned industry-standard testing procedures end to end",
+        "Connected lab-level quality to real design and production decisions"
+      ]
+    },
+    {
+      "id": "exp-wsc",
+      "company": "Weaver's Service Centre",
+      "role": "Industry Trainee",
+      "period": "Workshop",
+      "location": "Jaipur",
+      "summary": "Studied traditional dyeing, weaving, and loom mechanics first-hand.",
+      "highlights": [
+        "Explored dyeing and weaving techniques used by master weavers",
+        "Understood the functioning of different loom types"
+      ]
+    },
+    {
+      "id": "exp-bsl",
+      "company": "Bharat Spinning Limited (BSL)",
+      "role": "Industrial Visit",
+      "period": "Visit",
+      "location": "Bhilwara",
+      "summary": "Toured a working spinning mill to learn yarn fundamentals.",
+      "highlights": [
+        "Observed industrial spinning processes at scale",
+        "Learned yarn-count systems and their impact on fabric"
+      ]
+    },
+    {
+      "id": "exp-kal",
+      "company": "Kalaneri Institute of Art",
+      "role": "Software Workshop",
+      "period": "Training",
+      "location": "Jaipur",
+      "summary": "Built a foundation in design software for surface work.",
+      "highlights": [
+        "Learned the basics of CorelDRAW and Adobe Photoshop",
+        "Applied digital tools to motif and repeat development"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-bdes",
+      "qualification": "B.Des  Textile Design",
+      "institution": "Government Women Polytechnic College, Jaipur · RTU",
+      "period": "2023  2026",
+      "result": "9.97 CGPA · Rank 1"
+    },
+    {
+      "id": "edu-12",
+      "qualification": "Senior Secondary (Science)",
+      "institution": "St. Anne's Sr. Sec. School, Jodhpur · CBSE",
+      "period": "2021",
+      "result": "88.8%"
+    },
+    {
+      "id": "edu-10",
+      "qualification": "Secondary",
+      "institution": "St. Anne's Sr. Sec. School, Jodhpur · CBSE",
+      "period": "2019",
+      "result": "84.2%"
+    }
+  ],
+  "projects": [
+    {
+      "id": "mah-e-noor",
+      "title": "Mah-e-Noor",
+      "subtitle": "Indigo Impressions  A Nocturnal Heritage Narrative",
+      "description": "A hand-painted textile scroll fusing Van Gogh's Starry Night with the elegance of Bani Thani miniature art.",
+      "stack": [
+        "Hand Painting",
+        "Hand Embroidery",
+        "Surface Design",
+        "Cotton",
+        "Storytelling"
+      ],
+      "role": "Concept, Surface Design & Hand Craft",
+      "year": "2025",
+      "link": "",
+      "highlight": true,
+      "color": "#C8A96E",
+      "caseStudy": {
+        "hero": "/assets/img/projects/mah-e-noor/shoot-1.webp",
+        "intro": "Mah-e-Noor  'light of the moon'  is a hand-painted textile scroll built around one ambitious idea: that two distant artistic worlds can share a single surface. Van Gogh's swirling night sky meets the jewel-like restraint of Bani Thani miniature painting, carried on a dome-shaped hanging scroll meant to be lived with.",
+        "meta": [
+          {
+            "label": "Year",
+            "value": "2025"
+          },
+          {
+            "label": "Role",
+            "value": "Concept · Surface Design · Craft"
+          },
+          {
+            "label": "Medium",
+            "value": "Hand-painted cotton + embroidery"
+          },
+          {
+            "label": "Form",
+            "value": "Dome-shaped hanging scroll"
+          },
+          {
+            "label": "Production",
+            "value": "Small-batch, women-led"
+          }
+        ],
+        "palette": [
+          {
+            "name": "Indigo",
+            "hex": "#1B2A4A"
+          },
+          {
+            "name": "Royal Blue",
+            "hex": "#3E5C9A"
+          },
+          {
+            "name": "Antique Gold",
+            "hex": "#C8A96E"
+          },
+          {
+            "name": "Porcelain",
+            "hex": "#7FA8C9"
+          },
+          {
+            "name": "Ivory",
+            "hex": "#F0EDE8"
+          }
+        ],
+        "sections": [
+          {
+            "id": "piece",
+            "kind": "overview",
+            "eyebrow": "The Piece",
+            "title": "A Scroll That Tells a Story",
+            "layout": "wide",
+            "body": [
+              "Every element is made by hand. A cotton base is painted, layered with fusible interfacing for structure, then finished with hand embroidery and concealed seams  a collector's wall hanging, not a printed reproduction.",
+              "The dome silhouette borrows from temple arches and palace windows, framing the painted night sky like a devotional scroll."
+            ],
+            "images": [
+              "/assets/img/projects/mah-e-noor/artwork-1.webp",
+              "/assets/img/projects/mah-e-noor/artwork-2.webp",
+              "/assets/img/projects/mah-e-noor/artwork-3.webp",
+              "/assets/img/projects/mah-e-noor/artwork-4.webp",
+              "/assets/img/projects/mah-e-noor/artwork-5.webp"
+            ]
+          },
+          {
+            "id": "mood",
+            "kind": "moodboard",
+            "eyebrow": "Inspiration & Mood",
+            "title": "Where Two Worlds Meet",
+            "layout": "collage",
+            "body": [
+              "The mood board fuses The Starry Night with Bani Thani, blending raw emotion with courtly elegance.",
+              "Indian heritage, architecture, and the storytelling rhythm of the scroll format set the tone  dreamy and royal."
+            ],
+            "images": [
+              "/assets/img/projects/mah-e-noor/moodboard-1.webp",
+              "/assets/img/projects/mah-e-noor/moodboard-2.webp",
+              "/assets/img/projects/mah-e-noor/moodboard-3.webp",
+              "/assets/img/projects/mah-e-noor/moodboard-4.webp",
+              "/assets/img/projects/mah-e-noor/moodboard-5.webp",
+              "/assets/img/projects/mah-e-noor/moodboard-6.webp",
+              "/assets/img/projects/mah-e-noor/moodboard-7.webp",
+              "/assets/img/projects/mah-e-noor/moodboard-8.webp"
+            ]
+          },
+          {
+            "id": "vm",
+            "kind": "statement",
+            "title": "Vision & Mission",
+            "layout": "duo",
+            "statements": [
+              {
+                "label": "Vision",
+                "text": "To merge Western and Indian art into a timeless scroll design that reflects beauty, culture, and emotion."
+              },
+              {
+                "label": "Mission",
+                "text": "To reinterpret Starry Night and Bani Thani through contemporary, textile-inspired storytelling and elegant visual composition."
+              }
+            ],
+            "images": [
+              "/assets/img/projects/mah-e-noor/statement-1.webp",
+              "/assets/img/projects/mah-e-noor/statement-2.webp",
+              "/assets/img/projects/mah-e-noor/statement-3.webp",
+              "/assets/img/projects/mah-e-noor/statement-4.webp",
+              "/assets/img/projects/mah-e-noor/statement-5.webp"
+            ]
+          },
+          {
+            "id": "spec",
+            "kind": "spec",
+            "eyebrow": "Concept to Market",
+            "title": "Craft, Customer & Positioning",
+            "specs": [
+              {
+                "label": "Design Concept",
+                "items": [
+                  "Fusion of Starry Night swirls with Indian miniature aesthetics",
+                  "Inspired by Bani Thani elegance",
+                  "Dome-shaped hanging-scroll silhouette",
+                  "Indigo, royal blue & antique gold palette",
+                  "Hand-painted + embroidered storytelling"
+                ]
+              },
+              {
+                "label": "Craft & Production",
+                "items": [
+                  "Handcrafted painted cotton base",
+                  "Fusible interfacing for structure",
+                  "Hand embroidery detailing",
+                  "Concealed-seam premium finishing",
+                  "Small-batch artisan production"
+                ]
+              },
+              {
+                "label": "Target Customer",
+                "items": [
+                  "Art-loving home-décor buyers",
+                  "Premium interior stylists",
+                  "Boutique décor stores & collectors",
+                  "Women aged 25–45",
+                  "Upper-middle to luxury segment"
+                ]
+              },
+              {
+                "label": "USP",
+                "items": [
+                  "Limited-edition art scroll",
+                  "Every hand-painted piece is unique",
+                  "Customizable artwork themes",
+                  "Collector's wall-hanging product"
+                ]
+              },
+              {
+                "label": "Cost Advantage",
+                "items": [
+                  "Cotton-based sustainable material",
+                  "Lightweight support layers",
+                  "Low tooling requirement",
+                  "High value at moderate material cost"
+                ]
+              },
+              {
+                "label": "Social Impact",
+                "items": [
+                  "Promotes handmade textile art",
+                  "Supports women-artisan employment",
+                  "Encourages sustainable cotton",
+                  "Revives miniature-inspired surface design"
+                ]
+              }
+            ],
+            "images": [
+              "/assets/img/projects/mah-e-noor/spec-1.webp"
+            ]
+          },
+          {
+            "id": "making",
+            "kind": "gallery",
+            "eyebrow": "Behind the Work",
+            "title": "The Making",
+            "layout": "grid",
+            "body": [
+              "From blank cotton to finished scroll  painting, layering, and hand-embroidering each section in small batches."
+            ],
+            "images": [
+              "/assets/img/projects/mah-e-noor/process-1.webp",
+              "/assets/img/projects/mah-e-noor/process-2.webp",
+              "/assets/img/projects/mah-e-noor/process-3.webp",
+              "/assets/img/projects/mah-e-noor/process-4.webp",
+              "/assets/img/projects/mah-e-noor/process-5.webp",
+              "/assets/img/projects/mah-e-noor/process-6.webp",
+              "/assets/img/projects/mah-e-noor/process-7.webp",
+              "/assets/img/projects/mah-e-noor/process-8.webp"
+            ]
+          },
+          {
+            "id": "shoot",
+            "kind": "gallery",
+            "eyebrow": "The Result",
+            "title": "The Shoot",
+            "layout": "wide",
+            "body": [
+              "Indigo Impressions  a nocturnal heritage narrative, styled and photographed as a finished collector's piece."
+            ],
+            "images": [
+              "/assets/img/projects/mah-e-noor/shoot-1.webp",
+              "/assets/img/projects/mah-e-noor/shoot-2.webp",
+              "/assets/img/projects/mah-e-noor/shoot-3.webp",
+              "/assets/img/projects/mah-e-noor/shoot-4.webp"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "regal-wilderness",
+      "title": "Regal Wilderness",
+      "subtitle": "A Premium Leopard-Patchwork Cushion Collection",
+      "description": "A decorative cushion collection turning textile offcuts into collectible soft furnishings.",
+      "stack": [
+        "Patchwork",
+        "Cushion Design",
+        "Motif Placement",
+        "Velvet",
+        "Small-batch Craft"
+      ],
+      "role": "Design & Development",
+      "year": "2025",
+      "link": "",
+      "highlight": false,
+      "color": "#3E5C9A",
+      "caseStudy": {
+        "hero": "/assets/img/projects/regal-wilderness/shoot-1.webp",
+        "intro": "Regal Wilderness turns textile offcuts into collectible soft furnishings. A single leopard-silhouette motif, hand-built in patchwork across indigo and royal tones, brings the drama of the wild into refined modern interiors  produced in small batches with women artisans from low-income households.",
+        "meta": [
+          {
+            "label": "Year",
+            "value": "2025"
+          },
+          {
+            "label": "Role",
+            "value": "Design & Development"
+          },
+          {
+            "label": "Technique",
+            "value": "Hand-crafted patchwork"
+          },
+          {
+            "label": "Motif",
+            "value": "Leopard silhouette"
+          },
+          {
+            "label": "Production",
+            "value": "Small-batch, women-led"
+          }
+        ],
+        "palette": [
+          {
+            "name": "Deep Indigo",
+            "hex": "#22305C"
+          },
+          {
+            "name": "Royal Blue",
+            "hex": "#3E5C9A"
+          },
+          {
+            "name": "Antique Gold",
+            "hex": "#C8A96E"
+          },
+          {
+            "name": "Charcoal",
+            "hex": "#1A1A22"
+          },
+          {
+            "name": "Cream",
+            "hex": "#E8E2D6"
+          }
+        ],
+        "sections": [
+          {
+            "id": "boards",
+            "kind": "overview",
+            "eyebrow": "Design Direction",
+            "title": "Mapping the Collection",
+            "layout": "grid",
+            "body": [
+              "The collection began as a mind map  translating a single leopard-silhouette motif into a coordinated set of cushions through patchwork placement, colour balance, and material choice."
+            ],
+            "images": [
+              "/assets/img/projects/regal-wilderness/boards-1.webp",
+              "/assets/img/projects/regal-wilderness/boards-2.webp",
+              "/assets/img/projects/regal-wilderness/boards-3.webp",
+              "/assets/img/projects/regal-wilderness/boards-4.webp"
+            ]
+          },
+          {
+            "id": "vm",
+            "kind": "statement",
+            "title": "Vision & Mission",
+            "layout": "duo",
+            "statements": [
+              {
+                "label": "Vision",
+                "text": "To create a premium cushion collection that blends comfort, elegance, and artistic textile design  transforming everyday interiors into luxurious, expressive, emotionally warm spaces."
+              },
+              {
+                "label": "Mission",
+                "text": "To balance luxury, comfort, and functionality using premium fabrics, refined surface techniques, and elegant palettes for contemporary homemakers and young women."
+              }
+            ],
+            "images": [
+              "/assets/img/projects/regal-wilderness/statement-1.webp",
+              "/assets/img/projects/regal-wilderness/statement-2.webp",
+              "/assets/img/projects/regal-wilderness/statement-3.webp",
+              "/assets/img/projects/regal-wilderness/statement-4.webp"
+            ]
+          },
+          {
+            "id": "spec",
+            "kind": "spec",
+            "eyebrow": "Concept to Market",
+            "title": "Craft, Market & Impact",
+            "specs": [
+              {
+                "label": "Design Concept",
+                "items": [
+                  "Leopard-silhouette motif",
+                  "Patchwork techniques",
+                  "Indigo & royal colour palette",
+                  "Hand-crafted patchwork",
+                  "Luxury meets social empowerment"
+                ]
+              },
+              {
+                "label": "Craft & Production",
+                "items": [
+                  "Handmade leopard patchwork",
+                  "Small-batch production",
+                  "Skill-based craftsmanship",
+                  "Work for women from low-income households"
+                ]
+              },
+              {
+                "label": "Target Customer",
+                "items": [
+                  "Luxury home-décor buyers",
+                  "Interior styling & premium residences",
+                  "Boutique home-décor stores"
+                ]
+              },
+              {
+                "label": "USP",
+                "items": [
+                  "Handmade leopard patchwork",
+                  "Limited-edition product",
+                  "Unique handcrafted variation",
+                  "Premium boutique product"
+                ]
+              },
+              {
+                "label": "Cost Advantage",
+                "items": [
+                  "Patchwork uses smaller fabric pieces",
+                  "Lower production cost",
+                  "Sustainable material use",
+                  "Limited pieces per design"
+                ]
+              },
+              {
+                "label": "Social Impact",
+                "items": [
+                  "Home-based employment for women",
+                  "Reduces textile waste via patchwork",
+                  "Improves income & skills of local artisans"
+                ]
+              },
+              {
+                "label": "Application",
+                "items": [
+                  "Luxury living rooms",
+                  "Designer interiors",
+                  "Boutique hotels",
+                  "Decorative home styling"
+                ]
+              }
+            ],
+            "images": [
+              "/assets/img/projects/regal-wilderness/spec-1.webp"
+            ]
+          },
+          {
+            "id": "making",
+            "kind": "gallery",
+            "eyebrow": "Behind the Work",
+            "title": "The Making",
+            "layout": "grid",
+            "body": [
+              "Cutting, arranging, and stitching each leopard silhouette by hand  every cushion a slightly different, one-of-a-kind composition."
+            ],
+            "images": [
+              "/assets/img/projects/regal-wilderness/process-1.webp",
+              "/assets/img/projects/regal-wilderness/process-2.webp",
+              "/assets/img/projects/regal-wilderness/process-3.webp",
+              "/assets/img/projects/regal-wilderness/process-4.webp",
+              "/assets/img/projects/regal-wilderness/process-5.webp",
+              "/assets/img/projects/regal-wilderness/process-6.webp"
+            ]
+          },
+          {
+            "id": "shoot",
+            "kind": "gallery",
+            "eyebrow": "The Result",
+            "title": "The Shoot",
+            "layout": "wide",
+            "body": [
+              "The finished collection, styled in context as premium, collectible soft furnishings."
+            ],
+            "images": [
+              "/assets/img/projects/regal-wilderness/shoot-1.webp",
+              "/assets/img/projects/regal-wilderness/shoot-2.webp",
+              "/assets/img/projects/regal-wilderness/shoot-3.webp",
+              "/assets/img/projects/regal-wilderness/shoot-4.webp"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "porcelaina",
+      "title": "Porcelaina",
+      "subtitle": "Where Blue Pottery Meets Nature",
+      "description": "A serene surface-design collection translating Jaipur blue pottery and organic forms into calm, modern, repeatable prints.",
+      "stack": [
+        "Repeat Design",
+        "Surface Pattern",
+        "Digital Print",
+        "Blue Pottery",
+        "Florals"
+      ],
+      "role": "Surface & Repeat Design",
+      "year": "2024",
+      "link": "",
+      "highlight": false,
+      "color": "#7FA8C9",
+      "caseStudy": {
+        "hero": "/assets/img/projects/porcelaina/pieces-1.webp",
+        "intro": "Porcelaina is a serene surface-design collection where Jaipur's blue pottery meets the organic world. Soft florals and fluid silhouettes translate heritage craftsmanship into calm, modern, repeatable prints  a study in blue, white, and natural balance.",
+        "meta": [
+          {
+            "label": "Year",
+            "value": "2024"
+          },
+          {
+            "label": "Role",
+            "value": "Surface & Repeat Design"
+          },
+          {
+            "label": "Inspiration",
+            "value": "Blue pottery × nature"
+          },
+          {
+            "label": "Palette",
+            "value": "Blues & whites"
+          },
+          {
+            "label": "Output",
+            "value": "Repeatable digital prints"
+          }
+        ],
+        "palette": [
+          {
+            "name": "Porcelain Blue",
+            "hex": "#7FA8C9"
+          },
+          {
+            "name": "Delft Indigo",
+            "hex": "#3E5C9A"
+          },
+          {
+            "name": "Cobalt",
+            "hex": "#2C4A7C"
+          },
+          {
+            "name": "Cloud White",
+            "hex": "#F2F4F7"
+          },
+          {
+            "name": "Soft Sand",
+            "hex": "#E3D9C6"
+          }
+        ],
+        "sections": [
+          {
+            "id": "concept",
+            "kind": "overview",
+            "eyebrow": "The Concept",
+            "title": "Blue Pottery, Reimagined",
+            "layout": "grid",
+            "body": [
+              "Blue pottery meets nature in a serene visual harmony of porcelain textures and organic forms.",
+              "Soft florals and fluid silhouettes express calm, purity, and refined elegance; a palette of blues and whites reflects tradition, serenity, and natural balance.",
+              "Heritage craftsmanship merges with modern organic expression to define the visual story."
+            ],
+            "images": [
+              "/assets/img/projects/porcelaina/intro-1.webp",
+              "/assets/img/projects/porcelaina/intro-2.webp",
+              "/assets/img/projects/porcelaina/intro-3.webp",
+              "/assets/img/projects/porcelaina/intro-4.webp",
+              "/assets/img/projects/porcelaina/intro-5.webp"
+            ]
+          },
+          {
+            "id": "mood",
+            "kind": "moodboard",
+            "eyebrow": "Visual Research",
+            "title": "Moodboard",
+            "layout": "collage",
+            "images": [
+              "/assets/img/projects/porcelaina/moodboard-1.webp",
+              "/assets/img/projects/porcelaina/moodboard-2.webp",
+              "/assets/img/projects/porcelaina/moodboard-3.webp",
+              "/assets/img/projects/porcelaina/moodboard-4.webp",
+              "/assets/img/projects/porcelaina/moodboard-5.webp",
+              "/assets/img/projects/porcelaina/moodboard-6.webp",
+              "/assets/img/projects/porcelaina/moodboard-7.webp",
+              "/assets/img/projects/porcelaina/moodboard-8.webp",
+              "/assets/img/projects/porcelaina/moodboard-9.webp",
+              "/assets/img/projects/porcelaina/moodboard-10.webp",
+              "/assets/img/projects/porcelaina/moodboard-11.webp",
+              "/assets/img/projects/porcelaina/moodboard-12.webp",
+              "/assets/img/projects/porcelaina/moodboard-13.webp",
+              "/assets/img/projects/porcelaina/moodboard-14.webp"
+            ]
+          },
+          {
+            "id": "surfaces",
+            "kind": "gallery",
+            "eyebrow": "The Surfaces",
+            "title": "The Designs",
+            "layout": "wide",
+            "body": [
+              "Repeat-ready surface patterns built from blue-pottery motifs and florals  designed to tile seamlessly across fabric and home textiles."
+            ],
+            "images": [
+              "/assets/img/projects/porcelaina/pieces-1.webp",
+              "/assets/img/projects/porcelaina/pieces-2.webp",
+              "/assets/img/projects/porcelaina/pieces-3.webp"
+            ]
+          },
+          {
+            "id": "shoot",
+            "kind": "gallery",
+            "eyebrow": "In Context",
+            "title": "The Shoot",
+            "layout": "grid",
+            "images": [
+              "/assets/img/projects/porcelaina/shoot-1.webp",
+              "/assets/img/projects/porcelaina/shoot-2.webp",
+              "/assets/img/projects/porcelaina/shoot-4.webp",
+              "/assets/img/projects/porcelaina/shoot-3.webp",
+              "/assets/img/projects/porcelaina/shoot-5.webp",
+              "/assets/img/projects/porcelaina/shoot-6.webp",
+              "/assets/img/projects/porcelaina/shoot-8.webp",
+              "/assets/img/projects/porcelaina/shoot-7.webp"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "testimonials": [],
+  "services": [
+    {
+      "title": "Surface & Repeat Design",
+      "description": "Repeat-ready prints and patterns built from heritage motifs  designed to tile seamlessly across fabric and home textiles.",
+      "items": [
+        "Motif development",
+        "Seamless repeats",
+        "Digital print files",
+        "Colourways"
+      ]
+    },
+    {
+      "title": "Hand-Painted Textiles",
+      "description": "One-of-a-kind painted textile art and scrolls  heritage techniques translated into collectible contemporary pieces.",
+      "items": [
+        "Hand painting",
+        "Scroll & wall art",
+        "Mixed-media finish",
+        "Storytelling"
+      ]
+    },
+    {
+      "title": "Patchwork & Soft Furnishings",
+      "description": "Premium cushions and soft furnishings using hand-crafted patchwork  luxury craft made in small, sustainable batches.",
+      "items": [
+        "Cushion design",
+        "Patchwork craft",
+        "Material sourcing",
+        "Small-batch production"
+      ]
+    },
+    {
+      "title": "Custom Commissions",
+      "description": "Bespoke surface and textile work for interiors, boutiques, and collectors  concept to finished, customizable piece.",
+      "items": [
+        "Concept & moodboard",
+        "Bespoke artwork",
+        "Interior styling",
+        "Collector pieces"
+      ]
+    }
+  ],
+  "galleryStrip": [
+    "/assets/img/projects/mah-e-noor/moodboard-1.webp",
+    "/assets/img/projects/mah-e-noor/moodboard-2.webp",
+    "/assets/img/projects/mah-e-noor/moodboard-3.webp",
+    "/assets/img/projects/mah-e-noor/moodboard-4.webp",
+    "/assets/img/projects/mah-e-noor/shoot-1.webp",
+    "/assets/img/projects/mah-e-noor/shoot-2.webp",
+    "/assets/img/projects/porcelaina/moodboard-1.webp",
+    "/assets/img/projects/porcelaina/moodboard-2.webp",
+    "/assets/img/projects/porcelaina/moodboard-3.webp",
+    "/assets/img/projects/porcelaina/moodboard-4.webp",
+    "/assets/img/projects/porcelaina/pieces-1.webp",
+    "/assets/img/projects/porcelaina/pieces-2.webp",
+    "/assets/img/projects/regal-wilderness/boards-1.webp",
+    "/assets/img/projects/regal-wilderness/boards-2.webp",
+    "/assets/img/projects/regal-wilderness/boards-3.webp",
+    "/assets/img/projects/regal-wilderness/shoot-1.webp",
+    "/assets/img/projects/regal-wilderness/shoot-2.webp"
+  ]
+}
