@@ -3,7 +3,7 @@ import { usePortfolio } from '@/hooks/usePortfolio'
 import { useLenis } from '@/components/layout/lenis-context'
 import { cn } from '@/lib/utils'
 const LINKS = [
-  { label: 'Work', href: '#projects' }, { label: 'Services', href: '#services' }, { label: 'About', href: '#about' },
+  { label: 'About', href: '#about' }, { label: 'Work', href: '#projects' }, { label: 'Services', href: '#services' },
   { label: 'Skills', href: '#skills' }, { label: 'Path', href: '#experience' }, { label: 'Contact', href: '#contact' },
 ]
 export function Nav() {
