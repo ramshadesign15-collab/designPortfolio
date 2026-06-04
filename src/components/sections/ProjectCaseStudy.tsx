@@ -33,7 +33,7 @@ function OverviewSection({ section }: { section: CaseSection }) {
     <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
       <div className="md:sticky md:top-28 md:self-start"><SectionHeading section={section} /><Body paragraphs={section.body} /></div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        {images.map((src, i) => (<Reveal key={src} variant={i % 2 === 0 ? 'right' : 'up'} delay={i * 0.08} className={cn(images.length === 1 && 'sm:col-span-2')}><ProjectImage src={src} alt={`${section.title ?? 'Project'}  ${i + 1}`} fit="contain" /></Reveal>))}
+        {images.map((src, i) => (<Reveal key={src} variant={i % 2 === 0 ? 'right' : 'up'} delay={i * 0.08} className={cn(images.length === 1 && 'sm:col-span-2')}><ProjectImage src={src} alt={`${section.title ?? 'Project'}  ${i + 1}`} fit="contain" aspect={section.aspect} /></Reveal>))}
       </div>
     </div>
   )

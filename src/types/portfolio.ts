@@ -13,6 +13,9 @@ export interface CaseSection {
   id: string
   kind: 'overview' | 'moodboard' | 'statement' | 'spec' | 'gallery'
   eyebrow?: string; title?: string; body?: string[]; layout?: CaseSectionLayout
+  /** Tailwind aspect-ratio class (e.g. 'aspect-square') to force uniform image
+   *  tiles when a section's source images have mismatched native ratios. */
+  aspect?: string
   images?: string[]; specs?: SpecGroup[]; statements?: { label: string; text: string }[]
 }
 export interface CaseStudy { hero: string; intro: string; meta: ProjectMeta[]; palette: PaletteSwatch[]; sections: CaseSection[] }
