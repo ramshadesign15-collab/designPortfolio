@@ -8,12 +8,16 @@ import { cn } from '@/lib/utils'
 interface Props { project: Project }
 
 function SectionIndex({ children }: { children: string }) {
-  return <span aria-hidden className="pointer-events-none absolute -top-16 right-0 -z-10 select-none font-display text-[4.5rem] font-semibold leading-none text-primary/[0.035] md:text-[8rem]">{children}</span>
+  // Sits as a faint watermark numeral, lifted fully above the section content so
+  // it never overlaps the images. Colour is set inline (not via the `/opacity`
+  // shorthand) because the theme colours are full hex strings, which makes
+  // Tailwind's `text-primary/[x]` compile to invalid CSS and render opaque.
+  return <span aria-hidden style={{ color: 'rgba(240,237,232,0.06)' }} className="pointer-events-none absolute -top-[5rem] right-0 -z-10 select-none font-display text-[4.5rem] font-semibold leading-none md:-top-[8.5rem] md:text-[8rem]">{children}</span>
 }
 function SectionHeading({ section }: { section: CaseSection }) {
   return (
     <div className="mb-8 md:mb-12">
-      {section.eyebrow && <Reveal variant="up"><p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-accent-1">{section.eyebrow}</p></Reveal>}
+      {section.eyebrow && <Reveal variant="up"><p className="mb-4 font-display text-2xl font-semibold uppercase tracking-[0.16em] text-accent-1 md:text-[2rem]">{section.eyebrow}</p></Reveal>}
       {section.title && <Reveal variant="clip"><h3 className="font-display font-semibold leading-tight text-primary" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3.5rem)' }}>{section.title}</h3></Reveal>}
     </div>
   )
