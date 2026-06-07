@@ -40,7 +40,7 @@ function ProjectDivider({
             <h3 className="font-display font-semibold leading-none text-primary" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)' }}>
               {project.title}
             </h3>
-            <p className="max-w-[44ch] text-sm text-secondary md:text-base">{project.subtitle}</p>
+            <p className="max-w-[44ch] text-sm text-secondary md:text-[1rem]">{project.subtitle}</p>
             <span
               aria-hidden
               className="mt-2 grid h-10 w-10 place-items-center rounded-full border transition-transform duration-300"
@@ -69,7 +69,7 @@ export function ProjectsSection() {
       <div className="mx-auto max-w-content px-6 pt-28 md:px-10 md:pt-36">
         <header className="flex items-end justify-between border-b border-border-subtle pb-10">
           <div>
-            <Reveal variant="up"><p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-accent-1">Selected Work</p></Reveal>
+            <Reveal variant="up"><p className="mb-3 font-mono text-sm uppercase tracking-[0.3em] text-accent-1 md:text-[1rem]">Selected Work</p></Reveal>
             <Reveal variant="clip"><h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>Collections</h2></Reveal>
             <Reveal variant="up" delay={0.1}><p className="mt-4 max-w-[52ch] text-base text-secondary md:text-lg">Three design stories  from first concept and moodboard through craft, market positioning, and the final shoot.</p></Reveal>
           </div>

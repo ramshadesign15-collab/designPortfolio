@@ -13,7 +13,7 @@ export function GalleryStripSection() {
     <section className="relative overflow-hidden border-y border-border-subtle py-16 md:py-24">
       <div className="mx-auto mb-10 max-w-content px-6 md:px-10">
         <Reveal variant="up">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent-1">In the Studio</p>
+          <p className="font-mono text-sm uppercase tracking-[0.3em] text-accent-1 md:text-[1rem]">In the Studio</p>
           <h2 className="mt-2 font-display font-semibold text-primary" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>A living archive of motifs & make</h2>
         </Reveal>
       </div>
