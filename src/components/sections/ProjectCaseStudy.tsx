@@ -29,6 +29,32 @@ function Body({ paragraphs }: { paragraphs?: string[] }) {
 
 function OverviewSection({ section }: { section: CaseSection }) {
   const images = section.images ?? []
+  // 'showcase': content-rich boards (mood / inspiration / story / palette) each
+  // carry their own meaning, so they're shown large and standalone — one per
+  // column at full width with a caption — instead of being shrunk into a cramped
+  // side grid where their internal text is unreadable.
+  if (section.layout === 'showcase') {
+    const captions = section.captions ?? []
+    return (
+      <div>
+        <div className="max-w-3xl"><SectionHeading section={section} /><Body paragraphs={section.body} /></div>
+        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-12">
+          {images.map((src, i) => (
+            <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 2) * 0.08}>
+              <figure>
+                <ProjectImage src={src} alt={captions[i] ?? `${section.title ?? 'Board'}  ${i + 1}`} fit="contain" priority={i < 2} />
+                {captions[i] && (
+                  <figcaption className="mt-4 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
+                    <span className="text-accent-1">{String(i + 1).padStart(2, '0')}</span>{captions[i]}
+                  </figcaption>
+                )}
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    )
+  }
   return (
     <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
       <div className="md:sticky md:top-28 md:self-start"><SectionHeading section={section} /><Body paragraphs={section.body} /></div>

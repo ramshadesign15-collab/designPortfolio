@@ -8,7 +8,7 @@ export interface EducationItem { id: string; qualification: string; institution:
 export interface PaletteSwatch { name: string; hex: string }
 export interface ProjectMeta { label: string; value: string }
 export interface SpecGroup { label: string; items: string[] }
-export type CaseSectionLayout = 'duo' | 'stack' | 'grid' | 'wide' | 'collage'
+export type CaseSectionLayout = 'duo' | 'stack' | 'grid' | 'wide' | 'collage' | 'showcase'
 export interface CaseSection {
   id: string
   kind: 'overview' | 'moodboard' | 'statement' | 'spec' | 'gallery'
@@ -16,6 +16,9 @@ export interface CaseSection {
   /** Tailwind aspect-ratio class (e.g. 'aspect-square') to force uniform image
    *  tiles when a section's source images have mismatched native ratios. */
   aspect?: string
+  /** Optional per-image captions, shown beneath each image in the 'showcase'
+   *  overview layout so content-rich boards read as standalone, labelled pieces. */
+  captions?: string[]
   images?: string[]; specs?: SpecGroup[]; statements?: { label: string; text: string }[]
 }
 export interface CaseStudy { hero: string; intro: string; meta: ProjectMeta[]; palette: PaletteSwatch[]; sections: CaseSection[] }

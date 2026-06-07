@@ -450,9 +450,15 @@
             "kind": "overview",
             "eyebrow": "Design Direction",
             "title": "Mapping the Collection",
-            "layout": "grid",
+            "layout": "showcase",
             "body": [
               "The collection began as a mind map  translating a single leopard-silhouette motif into a coordinated set of cushions through patchwork placement, colour balance, and material choice."
+            ],
+            "captions": [
+              "Mood Board  Tone, texture & atmosphere",
+              "Inspiration Board  Source references & motif",
+              "Story Board  Narrative & scenario",
+              "Colour Palette  Indigo Blue, Terracotta, Natural Straw, Creamy White & Deep Umber"
             ],
             "images": [
               "/assets/img/projects/regal-wilderness/boards-1.webp",
