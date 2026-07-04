@@ -5,7 +5,7 @@ import { KerningHeading, Plate } from './primitives'
 
 /**
  * The Vellum. A sticky, slowly parallaxing photograph with a rag-paper panel
- * that scrolls up over it — the panel's backdrop-blur samples the pinned photo
+ * that scrolls up over it  the panel's backdrop-blur samples the pinned photo
  * behind it, so the two sit on genuinely different planes. Below the panel, a
  * grid of the collection's real plates on the dark ground. Data-driven: one per
  * collection.
@@ -25,7 +25,7 @@ export function VellumCaseStudy({ project, index }: { project: Project; index: n
       <div className="sticky top-0 h-svh w-full overflow-hidden">
         <motion.img
           src={cs.hero}
-          alt={`${project.title} — ${project.subtitle}`}
+          alt={`${project.title}  ${project.subtitle}`}
           className="h-full w-full object-cover"
           style={{ y, scale: 1.08, filter: 'saturate(0.95) contrast(1.04)' }}
         />
@@ -81,7 +81,7 @@ export function VellumCaseStudy({ project, index }: { project: Project; index: n
         <div className="relative z-[2] mx-auto max-w-content px-6 pb-28 pt-16 md:px-10 md:pb-36 md:pt-24">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
             {plates.map((src, i) => (
-              <Plate key={src} src={src} alt={`${project.title} — plate ${i + 1}`} />
+              <Plate key={src} src={src} alt={`${project.title}  plate ${i + 1}`} />
             ))}
           </div>
         </div>

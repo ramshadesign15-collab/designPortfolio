@@ -48,7 +48,7 @@ export function RedesignNav() {
 
   const go = (href: string) => { setOpen(false); scrollTo(href, -20) }
 
-  // No backdrop-filter on <header> while open — it would become the containing
+  // No backdrop-filter on <header> while open  it would become the containing
   // block for the fixed panel and collapse the overlay to the bar's height.
   return (
     <header

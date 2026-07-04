@@ -11,7 +11,7 @@ export function ProjectsEditorial() {
         <Label>Selected Work</Label>
         <KerningHeading className="mt-4" style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.25rem)', color: 'var(--r-bone)' }}>Three collections</KerningHeading>
         <p className="mt-5 max-w-[54ch] text-lg" style={{ fontFamily: 'var(--font-body-r)', color: 'var(--r-bone-soft)' }}>
-          Each a full design story — from first concept and moodboard through craft, market positioning, and the final shoot.
+          Each a full design story  from first concept and moodboard through craft, market positioning, and the final shoot.
         </p>
       </div>
       <div className="mt-16 flex flex-col md:mt-24">

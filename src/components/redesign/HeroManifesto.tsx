@@ -9,7 +9,7 @@ const EASE_SETTLE = [0.16, 1, 0.3, 1] as const
 
 /**
  * The Weave-In. The manifesto line is drawn left-to-right (clip-path) while a
- * malachite "needle" rides the reveal edge — the thread being laid into cloth.
+ * malachite "needle" rides the reveal edge  the thread being laid into cloth.
  * Everything sits on the dark iron ground; the portrait is a matted print.
  */
 export function HeroManifesto() {
@@ -109,7 +109,7 @@ export function HeroManifesto() {
             className="mt-8 max-w-[46ch] text-lg leading-relaxed md:text-xl"
             style={{ fontFamily: 'var(--font-body-r)', color: 'var(--r-bone-soft)' }}
           >
-            Heritage art — Madhubani, Pichwai, Bani Thani, blue pottery — reworked into
+            Heritage art  Madhubani, Pichwai, Bani Thani, blue pottery  reworked into
             surfaces people live with.
           </motion.p>
 

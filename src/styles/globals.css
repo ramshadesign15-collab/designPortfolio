@@ -11,7 +11,7 @@
   --text-primary: #f0ede8;
   --text-secondary: #9a948c;
   /* Warm stone-gray tinted toward the brand gold. Lifted from #59554f (2.5:1,
-     failed WCAG AA) to clear 4.5:1 on every surface — base/surface/elevated —
+     failed WCAG AA) to clear 4.5:1 on every surface  base/surface/elevated 
      while staying a clear step below --text-secondary so hierarchy holds. */
   --text-muted: #857f71;
   --accent-1: #c8a96e;
@@ -51,7 +51,7 @@ html.lenis, html.lenis body { height: auto; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
 
-/* ── Redesign system — "Iron, rag & malachite" editorial ─────────────────
+/* ── Redesign system  "Iron, rag & malachite" editorial ─────────────────
    Dark iron/dye-vat ground, rag-paper reading panels, one malachite pigment
    accent. Escapes the cream-body + italic-serif + madder reference lane.
    Scoped to the `?preview=redesign` surface for now (Phase 1). */
@@ -74,7 +74,7 @@ html.lenis, html.lenis body { height: auto; }
   --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Site-wide film grain — ties every pixel to a physical substrate. */
+/* Site-wide film grain  ties every pixel to a physical substrate. */
 .r-grain {
   position: fixed;
   inset: 0;

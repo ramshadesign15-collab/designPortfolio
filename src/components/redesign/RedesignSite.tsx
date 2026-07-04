@@ -2,7 +2,7 @@ import { GrainOverlay } from './GrainOverlay'
 import { RedesignNav } from './RedesignNav'
 import { HeroManifesto } from './HeroManifesto'
 import { AboutEditorial } from './AboutEditorial'
-import { ArchiveStrip } from './ArchiveStrip'
+import { RotatingArchive } from './RotatingArchive'
 import { ProjectsEditorial } from './ProjectsEditorial'
 import { ServicesEditorial } from './ServicesEditorial'
 import { SkillsEditorial } from './SkillsEditorial'
@@ -25,7 +25,7 @@ export function RedesignSite() {
       <main>
         <HeroManifesto />
         <AboutEditorial />
-        <ArchiveStrip />
+        <RotatingArchive />
         <ProjectsEditorial />
         <ServicesEditorial />
         <SkillsEditorial />

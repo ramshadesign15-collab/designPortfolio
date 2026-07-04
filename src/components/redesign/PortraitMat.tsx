@@ -2,7 +2,7 @@ import { useRef, type MouseEvent } from 'react'
 import { useReducedMotion } from 'framer-motion'
 
 /**
- * A matted portrait that tilts a few degrees toward the pointer — a physical
+ * A matted portrait that tilts a few degrees toward the pointer  a physical
  * card on a mat, not a floating image. Pointer-only (disabled for touch and for
  * reduced-motion). Square corners keep the archival/gallery register.
  */

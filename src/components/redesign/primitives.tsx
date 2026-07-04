@@ -22,7 +22,7 @@ export function KerningHeading({ children, className, style }: { children: React
   )
 }
 
-/** Small malachite section label — the one deliberate kicker cadence. */
+/** Small malachite section label  the one deliberate kicker cadence. */
 export function Label({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <p
@@ -34,7 +34,7 @@ export function Label({ children, className }: { children: ReactNode; className?
   )
 }
 
-/** A matted print on the dark ground — square corners, hairline mat, real image. */
+/** A matted print on the dark ground  square corners, hairline mat, real image. */
 export function Plate({ src, alt, caption, className, aspect = 'aspect-[3/4]' }: { src: string; alt: string; caption?: string; className?: string; aspect?: string }) {
   const reduce = useReducedMotion()
   return (
