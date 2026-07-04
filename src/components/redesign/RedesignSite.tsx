@@ -1,5 +1,5 @@
 import { GrainOverlay } from './GrainOverlay'
-import { Preloader } from './Preloader'
+import { PigmentPreloader } from './PigmentPreloader'
 import { ThreadSpine } from './ThreadSpine'
 import { RedesignNav } from './RedesignNav'
 import { HeroManifesto } from './HeroManifesto'
@@ -16,7 +16,7 @@ import { FooterEditorial } from './FooterEditorial'
 export function RedesignSite() {
   return (
     <div className="relative min-h-svh" style={{ background: 'var(--r-ground)', color: 'var(--r-bone)', fontFamily: 'var(--font-body-r)' }}>
-      <Preloader />
+      <PigmentPreloader />
       <GrainOverlay />
       <ThreadSpine />
       <a
