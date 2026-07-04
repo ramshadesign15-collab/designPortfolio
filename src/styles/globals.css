@@ -24,15 +24,15 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: auto; }
-body { margin: 0; min-height: 100vh; background-color: var(--bg-base); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; overflow-x: hidden; }
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.05; margin: 0; }
+body { margin: 0; min-height: 100vh; background-color: var(--r-ground); color: var(--r-bone); font-family: var(--font-body-r); line-height: 1.65; overflow-x: hidden; }
+h1, h2, h3, h4 { font-family: var(--font-display-r); font-weight: 400; line-height: 1.05; margin: 0; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
-::selection { background-color: var(--accent-1); color: var(--bg-base); }
+::selection { background-color: var(--r-malachite); color: var(--r-ground); }
 ::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: var(--bg-elevated); }
-::-webkit-scrollbar-thumb { background: var(--accent-1); border-radius: 999px; }
-:focus-visible { outline: 2px solid var(--accent-1); outline-offset: 3px; border-radius: 2px; }
+::-webkit-scrollbar-track { background: var(--r-ground-2); }
+::-webkit-scrollbar-thumb { background: var(--r-malachite); border-radius: 999px; }
+:focus-visible { outline: 2px solid var(--r-malachite); outline-offset: 3px; border-radius: 2px; }
 
 .text-balance { text-wrap: balance; }
 
@@ -49,4 +49,41 @@ html.lenis, html.lenis body { height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ── Redesign system — "Iron, rag & malachite" editorial ─────────────────
+   Dark iron/dye-vat ground, rag-paper reading panels, one malachite pigment
+   accent. Escapes the cream-body + italic-serif + madder reference lane.
+   Scoped to the `?preview=redesign` surface for now (Phase 1). */
+:root {
+  --r-ground: #0e110e;        /* dominant dark ground */
+  --r-ground-2: #161a16;      /* raised dark surface */
+  --r-paper: #e9e8e2;         /* rag-paper reading panels */
+  --r-paper-2: #dfded6;
+  --r-ink: #14140f;           /* text on paper */
+  --r-ink-soft: #45423a;      /* body on paper (8.2:1) */
+  --r-bone: #e9e8e2;          /* text on ground */
+  --r-bone-soft: #b9b7ac;     /* body on ground (9.4:1) */
+  --r-malachite: #4fa37d;     /* accent on dark ground (6.2:1) */
+  --r-malachite-deep: #245c44;/* accent text on paper (6.4:1) */
+  --r-hairline: rgba(233, 232, 226, 0.14);
+  --r-hairline-paper: #cfccc2;
+  --font-display-r: 'Young Serif', Georgia, serif;
+  --font-body-r: 'Hanken Grotesk', system-ui, sans-serif;
+  --ease-ink: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Site-wide film grain — ties every pixel to a physical substrate. */
+.r-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.055;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) {
+  .r-grain { opacity: 0.04; }
 }
