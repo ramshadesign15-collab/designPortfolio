@@ -89,7 +89,7 @@ export function PigmentReveal({ src, eyebrow, heading, alt }: { src: string; eye
           ) : null
         ) : (
           <div className="border p-3" style={{ borderColor: 'var(--r-hairline-paper)', background: 'var(--r-paper-2)' }}>
-            <img src={src} alt={alt} className="max-h-[70vh] w-auto" style={{ filter: 'saturate(0.95)' }} />
+            <img src={src} alt={alt} loading="lazy" decoding="async" className="max-h-[70vh] w-auto" style={{ filter: 'saturate(0.95)' }} />
           </div>
         )}
 

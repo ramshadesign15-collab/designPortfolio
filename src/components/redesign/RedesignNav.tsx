@@ -31,18 +31,34 @@ export function RedesignNav() {
     stop()
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { setOpen(false); return }
+      if (e.key !== 'Tab') return
+      // trap focus inside the open panel
+      const p = document.getElementById('r-mobile-menu')
+      if (!p) return
+      const f = Array.from(p.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'))
+      if (f.length === 0) return
+      const first = f[0]
+      const last = f[f.length - 1]
+      const active = document.activeElement
+      if (!p.contains(active)) { e.preventDefault(); first.focus() }
+      else if (e.shiftKey && active === first) { e.preventDefault(); last.focus() }
+      else if (!e.shiftKey && active === last) { e.preventDefault(); first.focus() }
+    }
     const desktop = window.matchMedia('(min-width: 768px)')
     const onDesktop = () => { if (desktop.matches) setOpen(false) }
     window.addEventListener('keydown', onKey)
     desktop.addEventListener('change', onDesktop)
     const raf = requestAnimationFrame(() => firstLinkRef.current?.focus())
+    const trigger = menuBtnRef.current
     return () => {
       start()
       document.body.style.overflow = prev
       window.removeEventListener('keydown', onKey)
       desktop.removeEventListener('change', onDesktop)
       cancelAnimationFrame(raf)
+      trigger?.focus() // restore focus to the menu button on close
     }
   }, [open, stop, start])
 

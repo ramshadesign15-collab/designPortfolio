@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 const SEEN_KEY = 'r_pigment_intro'
@@ -7,10 +7,10 @@ const COLORS = ['#c8a96e', '#3e5c9a', '#7fa8c9', '#4fa37d', '#e9e8e2', '#8b6f4a'
 
 /**
  * First-load unveil, in pigment. Coloured pigment dust scatters, then swarms
- * into "Ramsha Ansari" before the cloth wipes upward to reveal the site — raw
- * pigment settling into identity, from which the page is then woven. Pure 2D
- * canvas (no three.js on first paint), once per session, skipped for reduced
- * motion, scroll locked while it plays.
+ * into "Ramsha Ansari" before the cloth wipes upward to reveal the site. Pure
+ * 2D canvas (no three.js on first paint), once per session, skipped for reduced
+ * motion. Dismissable at any time (Skip button, click, or Esc), and focus is
+ * trapped on the Skip control while it plays so nothing behind is reachable.
  */
 export function PigmentPreloader() {
   const reduce = useReducedMotion()
@@ -19,6 +19,13 @@ export function PigmentPreloader() {
     return !sessionStorage.getItem(SEEN_KEY)
   })
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const skipRef = useRef<HTMLButtonElement>(null)
+
+  const dismiss = useCallback(() => {
+    setShow(false)
+    try { sessionStorage.setItem(SEEN_KEY, '1') } catch { /* private mode */ }
+    document.body.style.overflow = ''
+  }, [])
 
   useEffect(() => {
     if (!show) return
@@ -38,7 +45,6 @@ export function PigmentPreloader() {
       if (!ctx) return
       ctx.scale(dpr, dpr)
 
-      // sample the name's pixels as target points
       const off = document.createElement('canvas')
       off.width = W
       off.height = H
@@ -83,31 +89,53 @@ export function PigmentPreloader() {
       raf = requestAnimationFrame(loop)
     }
 
-    // let the webfont land so the name samples in Young Serif, but never block long
     const fontsReady = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts?.ready
     Promise.race([fontsReady ?? Promise.resolve(), new Promise((r) => setTimeout(r, 400))]).then(run)
 
-    timer = window.setTimeout(() => {
-      setShow(false)
-      try { sessionStorage.setItem(SEEN_KEY, '1') } catch { /* private mode */ }
-      document.body.style.overflow = ''
-    }, 2450)
+    // keep focus on the Skip control; nothing behind the overlay is reachable
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { dismiss(); return }
+      if (e.key === 'Tab') { e.preventDefault(); skipRef.current?.focus() }
+    }
+    window.addEventListener('keydown', onKey)
+    const focusRaf = requestAnimationFrame(() => skipRef.current?.focus())
 
-    return () => { cancelAnimationFrame(raf); clearTimeout(timer); document.body.style.overflow = '' }
-  }, [show])
+    timer = window.setTimeout(dismiss, 2450)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      cancelAnimationFrame(focusRaf)
+      clearTimeout(timer)
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [show, dismiss])
 
   return (
     <AnimatePresence>
       {show && (
         <motion.div
           key="pigment-preloader"
-          className="fixed inset-0 z-[400]"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Intro animation"
+          className="fixed inset-0 z-[400] cursor-pointer"
           style={{ background: 'var(--r-ground)' }}
           initial={{ clipPath: 'inset(0 0 0% 0)' }}
           exit={{ clipPath: 'inset(0 0 100% 0)' }}
           transition={{ duration: 0.75, ease: [0.83, 0, 0.17, 1] }}
+          onClick={dismiss}
         >
           <canvas ref={canvasRef} className="h-full w-full" />
+          <button
+            ref={skipRef}
+            type="button"
+            onClick={(e) => { e.stopPropagation(); dismiss() }}
+            className="absolute bottom-6 right-6 border px-4 py-2 text-[0.65rem] uppercase tracking-[0.18em] transition-colors"
+            style={{ fontFamily: 'var(--font-body-r)', borderColor: 'var(--r-hairline)', color: 'var(--r-bone-soft)' }}
+          >
+            Skip intro
+          </button>
         </motion.div>
       )}
     </AnimatePresence>

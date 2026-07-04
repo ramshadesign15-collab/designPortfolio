@@ -26,6 +26,8 @@ export function VellumCaseStudy({ project, index }: { project: Project; index: n
         <motion.img
           src={cs.hero}
           alt={`${project.title}  ${project.subtitle}`}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover"
           style={{ y, scale: 1.08, filter: 'saturate(0.95) contrast(1.04)' }}
         />
@@ -42,11 +44,9 @@ export function VellumCaseStudy({ project, index }: { project: Project; index: n
       {/* rag-paper panel, pulled up over the pinned photo */}
       <div className="relative z-[2] mx-auto max-w-[720px] px-6" style={{ marginTop: '-64vh' }}>
         <article
-          className="border p-9 md:p-14"
+          className="r-vellum-panel border p-9 md:p-14"
           style={{
             background: 'rgba(233,232,226,0.9)',
-            backdropFilter: 'blur(22px) saturate(1.05)',
-            WebkitBackdropFilter: 'blur(22px) saturate(1.05)',
             borderColor: 'var(--r-hairline-paper)',
             boxShadow: '0 40px 90px -24px rgba(0,0,0,0.5), 0 6px 16px -6px rgba(0,0,0,0.3)',
             color: 'var(--r-ink)',
@@ -69,7 +69,7 @@ export function VellumCaseStudy({ project, index }: { project: Project; index: n
             <p className="mb-3 text-[0.65rem] uppercase tracking-[0.16em]" style={{ color: 'var(--r-malachite-deep)' }}>Palette</p>
             <div className="flex flex-wrap gap-2">
               {cs.palette.map((sw) => (
-                <span key={sw.hex} title={`${sw.name} · ${sw.hex}`} className="h-8 w-8 border" style={{ background: sw.hex, borderColor: 'rgba(20,20,15,0.15)' }} />
+                <span key={sw.hex} role="img" aria-label={`${sw.name} (${sw.hex})`} title={`${sw.name} · ${sw.hex}`} className="h-8 w-8 border" style={{ background: sw.hex, borderColor: 'rgba(20,20,15,0.15)' }} />
               ))}
             </div>
           </div>

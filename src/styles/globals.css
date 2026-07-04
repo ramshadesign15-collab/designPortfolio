@@ -2,26 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg-base: #07090f;
-  --bg-surface: #0c0f17;
-  --bg-elevated: #12161f;
-  --border-subtle: rgba(255,255,255,0.07);
-  --border-default: rgba(255,255,255,0.13);
-  --text-primary: #f0ede8;
-  --text-secondary: #9a948c;
-  /* Warm stone-gray tinted toward the brand gold. Lifted from #59554f (2.5:1,
-     failed WCAG AA) to clear 4.5:1 on every surface  base/surface/elevated 
-     while staying a clear step below --text-secondary so hierarchy holds. */
-  --text-muted: #857f71;
-  --accent-1: #c8a96e;
-  --accent-2: #3e5c9a;
-  --accent-3: #7fa8c9;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Manrope', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-}
-
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: auto; }
 body { margin: 0; min-height: 100vh; background-color: var(--r-ground); color: var(--r-bone); font-family: var(--font-body-r); line-height: 1.65; overflow-x: hidden; }
@@ -40,12 +20,13 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-.noise-overlay { position: absolute; inset: 0; pointer-events: none; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-@keyframes mesh-drift { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(4%,-3%) scale(1.06); } 66% { transform: translate(-3%,4%) scale(0.96); } }
-.bg-mesh-drift { animation: mesh-drift 22s ease-in-out infinite; }
-.bg-mesh-drift-slow { animation: mesh-drift 32s ease-in-out infinite reverse; }
+/* Vellum panel depth-blur — full on desktop, dropped on mobile where a
+   full-screen backdrop-filter over a scrolling photo janks cheap GPUs (the
+   panel bg is 90% opaque, so it reads fine without the blur). */
+.r-vellum-panel { backdrop-filter: blur(22px) saturate(1.05); -webkit-backdrop-filter: blur(22px) saturate(1.05); }
+@media (max-width: 767px) {
+  .r-vellum-panel { backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
