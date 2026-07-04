@@ -24,11 +24,20 @@ export function KerningHeading({ children, className, style }: { children: React
 
 /** Small malachite section label  the one deliberate kicker cadence. */
 export function Label({ children, className }: { children: ReactNode; className?: string }) {
+  const reduce = useReducedMotion()
   return (
     <p
       className={cn('text-xs uppercase tracking-[0.24em]', className)}
       style={{ fontFamily: 'var(--font-body-r)', color: 'var(--r-malachite)' }}
     >
+      <motion.span
+        className="mr-3 inline-block h-px w-6 origin-left align-middle"
+        style={{ background: 'var(--r-malachite)' }}
+        initial={reduce ? false : { scaleX: 0 }}
+        whileInView={reduce ? undefined : { scaleX: 1 }}
+        viewport={{ once: true, amount: 0.8 }}
+        transition={{ duration: 0.6, ease: EASE_SETTLE }}
+      />
       {children}
     </p>
   )
