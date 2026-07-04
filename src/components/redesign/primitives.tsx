@@ -34,17 +34,21 @@ export function Label({ children, className }: { children: ReactNode; className?
   )
 }
 
-/** A matted print on the dark ground  square corners, hairline mat, real image. */
+/** Grid wrapper that staggers its Plate children into a weighted drop-in. */
+export const plateGrid = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } }
+/** Each plate falls from just above its slot and settles with spring weight,
+ *  like a print laid on a table. Reduced motion (via MotionConfig) drops the
+ *  transform and leaves a clean fade. */
+export const plateDrop = {
+  hidden: { opacity: 0, y: -64, rotate: -2.5 },
+  show: { opacity: 1, y: 0, rotate: 0, transition: { type: 'spring' as const, stiffness: 120, damping: 15, mass: 0.9 } },
+}
+
+/** A matted print on the dark ground: square corners, hairline mat, real image.
+ *  Drives off the parent plateGrid stagger via the plateDrop variant. */
 export function Plate({ src, alt, caption, className, aspect = 'aspect-[3/4]' }: { src: string; alt: string; caption?: string; className?: string; aspect?: string }) {
-  const reduce = useReducedMotion()
   return (
-    <motion.figure
-      initial={reduce ? false : { opacity: 0, y: 18 }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: EASE_SETTLE }}
-      className={cn('group', className)}
-    >
+    <motion.figure variants={plateDrop} className={cn('group', className)}>
       <div className={cn('overflow-hidden border p-2 md:p-2.5', aspect)} style={{ borderColor: 'var(--r-hairline)', background: 'var(--r-ground-2)' }}>
         <img
           src={src}

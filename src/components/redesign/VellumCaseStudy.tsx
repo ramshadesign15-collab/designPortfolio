@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import type { Project } from '@/types/portfolio'
-import { KerningHeading, Plate } from './primitives'
+import { KerningHeading, Plate, plateGrid } from './primitives'
 
 /**
  * The Vellum. A sticky, slowly parallaxing photograph with a rag-paper panel
@@ -79,11 +79,11 @@ export function VellumCaseStudy({ project, index }: { project: Project; index: n
       {/* the collection's real plates, on the ground */}
       {plates.length > 0 && (
         <div className="relative z-[2] mx-auto max-w-content px-6 pb-28 pt-16 md:px-10 md:pb-36 md:pt-24">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+          <motion.div variants={plateGrid} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
             {plates.map((src, i) => (
               <Plate key={src} src={src} alt={`${project.title}  plate ${i + 1}`} />
             ))}
-          </div>
+          </motion.div>
         </div>
       )}
     </div>

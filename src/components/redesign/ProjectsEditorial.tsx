@@ -1,5 +1,6 @@
 import { usePortfolio } from '@/hooks/usePortfolio'
 import { KerningHeading, Label } from './primitives'
+import { MotifAssembly } from './MotifAssembly'
 import { VellumCaseStudy } from './VellumCaseStudy'
 
 export function ProjectsEditorial() {
@@ -13,6 +14,9 @@ export function ProjectsEditorial() {
         <p className="mt-5 max-w-[54ch] text-lg" style={{ fontFamily: 'var(--font-body-r)', color: 'var(--r-bone-soft)' }}>
           Each a full design story  from first concept and moodboard through craft, market positioning, and the final shoot.
         </p>
+        <div className="mt-10">
+          <MotifAssembly />
+        </div>
       </div>
       <div className="mt-16 flex flex-col md:mt-24">
         {ordered.map((p, i) => (
