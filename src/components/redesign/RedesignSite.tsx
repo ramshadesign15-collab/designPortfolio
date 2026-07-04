@@ -37,10 +37,11 @@ export function RedesignSite() {
         />
         <ProjectsEditorial />
         <PigmentReveal
-          src="/assets/img/projects/porcelaina/pieces-1.webp"
+          still
+          src="/assets/img/projects/porcelaina/shoot-1.webp"
           eyebrow="Colour, gathering"
           heading="And settles, at last, into cloth."
-          alt="Porcelaina — blue-pottery motifs in cobalt and clay"
+          alt="Porcelaina — the finished blue-pottery textile, styled in an interior"
         />
         <ServicesEditorial />
         <SkillsEditorial />

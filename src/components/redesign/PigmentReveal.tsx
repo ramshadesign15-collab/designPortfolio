@@ -57,10 +57,12 @@ function useArtworkParticles(src: string, enabled: boolean): ParticleData | null
  * only mounts while the section is in view (so multiple instances never run at
  * once). Touch / reduced-motion get the static plate and never load three.js.
  */
-export function PigmentReveal({ src, eyebrow, heading, alt }: { src: string; eyebrow: string; heading: string; alt: string }) {
+export function PigmentReveal({ src, eyebrow, heading, alt, still = false }: { src: string; eyebrow: string; heading: string; alt: string; still?: boolean }) {
   const reduce = useReducedMotion()
   const desktop = useMediaQuery('(min-width: 768px)')
-  const use3D = desktop && !reduce
+  // `still` = a deliberate quiet closer: the artwork as a matted plate, not a
+  // second WebGL coalesce (keeps one signature pigment moment, not two).
+  const use3D = desktop && !reduce && !still
   const ref = useRef<HTMLDivElement>(null)
   // Mount the canvas ~600px before the section reaches the viewport so the WebGL
   // context is warm and pigment dust is already rendering by the time you arrive
@@ -78,20 +80,31 @@ export function PigmentReveal({ src, eyebrow, heading, alt }: { src: string; eye
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
   const progress = useTransform(scrollYProgress, [0.05, 0.62], [0, 1])
 
-  return (
-    <section ref={ref} className="relative" style={{ height: use3D ? '220vh' : 'auto', background: 'var(--r-ground)' }}>
-      <div className="sticky top-0 flex h-svh w-full items-center justify-center overflow-hidden">
-        {use3D ? (
-          data && inView ? (
-            <Suspense fallback={null}>
-              <PigmentCanvas data={data} progress={progress} />
-            </Suspense>
-          ) : null
-        ) : (
-          <div className="border p-3" style={{ borderColor: 'var(--r-hairline-paper)', background: 'var(--r-paper-2)' }}>
-            <img src={src} alt={alt} loading="lazy" decoding="async" className="max-h-[70vh] w-auto" style={{ filter: 'saturate(0.95)' }} />
+  // Still plate — the deliberate quiet closer, plus the mobile / reduced-motion
+  // fallback. Heading sits ABOVE the matted image (never overlaid) so it reads
+  // regardless of how light the artwork is.
+  if (!use3D) {
+    return (
+      <section className="py-24 md:py-40" style={{ background: 'var(--r-ground)' }}>
+        <div className="mx-auto flex max-w-content flex-col items-center px-6 text-center md:px-10">
+          <Label>{eyebrow}</Label>
+          <h2 className="mx-auto mt-4 max-w-[18ch]" style={{ fontFamily: 'var(--font-display-r)', fontSize: 'clamp(1.8rem, 4vw, 3.25rem)', color: 'var(--r-bone)', lineHeight: 1.05 }}>{heading}</h2>
+          <div className="mt-10 border p-2.5" style={{ borderColor: 'var(--r-hairline-paper)', background: 'var(--r-paper-2)' }}>
+            <img src={src} alt={alt} loading="lazy" decoding="async" className="max-h-[60vh] w-auto" style={{ filter: 'saturate(0.95)' }} />
           </div>
-        )}
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section ref={ref} className="relative" style={{ height: '220vh', background: 'var(--r-ground)' }}>
+      <div className="sticky top-0 flex h-svh w-full items-center justify-center overflow-hidden">
+        {data && inView ? (
+          <Suspense fallback={null}>
+            <PigmentCanvas data={data} progress={progress} />
+          </Suspense>
+        ) : null}
 
         <div className="pointer-events-none absolute inset-x-0 top-[14%] px-6 text-center">
           <Label>{eyebrow}</Label>
