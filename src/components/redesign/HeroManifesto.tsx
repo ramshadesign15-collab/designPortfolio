@@ -63,9 +63,9 @@ export function HeroManifesto() {
               letterSpacing: '-0.005em',
             }}
           >
-            <span ref={lineRef} className="relative inline">
+            <span ref={lineRef} className="relative block">
               <motion.span
-                className="inline"
+                className="block"
                 initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }}
                 animate={reduce ? false : { clipPath: 'inset(0 0% 0 0)' }}
                 transition={{ duration: 1.25, ease: EASE_INK, delay: 0.15 }}
@@ -109,7 +109,7 @@ export function HeroManifesto() {
             className="mt-8 max-w-[46ch] text-lg leading-relaxed md:text-xl"
             style={{ fontFamily: 'var(--font-body-r)', color: 'var(--r-bone-soft)' }}
           >
-            Heritage art  Madhubani, Pichwai, Bani Thani, blue pottery  reworked into
+            Heritage art in Madhubani, Pichwai, Bani Thani and blue pottery, reworked into
             surfaces people live with.
           </motion.p>
 
