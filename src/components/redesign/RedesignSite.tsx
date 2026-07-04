@@ -5,7 +5,6 @@ import { RedesignNav } from './RedesignNav'
 import { HeroManifesto } from './HeroManifesto'
 import { AboutEditorial } from './AboutEditorial'
 import { PigmentReveal } from './PigmentReveal'
-import { RotatingArchive } from './RotatingArchive'
 import { ProjectsEditorial } from './ProjectsEditorial'
 import { ServicesEditorial } from './ServicesEditorial'
 import { SkillsEditorial } from './SkillsEditorial'
@@ -30,9 +29,19 @@ export function RedesignSite() {
       <main>
         <HeroManifesto />
         <AboutEditorial />
-        <PigmentReveal />
-        <RotatingArchive />
+        <PigmentReveal
+          src="/assets/img/projects/mah-e-noor/artwork-1.webp"
+          eyebrow="Pigment to surface"
+          heading="From pigment, a story assembles."
+          alt="Mah-e-Noor artwork — a hand-painted night sky in the Bani Thani idiom"
+        />
         <ProjectsEditorial />
+        <PigmentReveal
+          src="/assets/img/projects/porcelaina/pieces-1.webp"
+          eyebrow="Colour, gathering"
+          heading="And settles, at last, into cloth."
+          alt="Porcelaina — blue-pottery motifs in cobalt and clay"
+        />
         <ServicesEditorial />
         <SkillsEditorial />
         <ExperienceEditorial />
