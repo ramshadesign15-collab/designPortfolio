@@ -62,8 +62,19 @@ export function PigmentReveal({ src, eyebrow, heading, alt }: { src: string; eye
   const desktop = useMediaQuery('(min-width: 768px)')
   const use3D = desktop && !reduce
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { margin: '15% 0px 15% 0px' })
+  // Mount the canvas ~600px before the section reaches the viewport so the WebGL
+  // context is warm and pigment dust is already rendering by the time you arrive
+  // (no black-then-dots pop). Unmounts once well past, so only one runs at a time.
+  const inView = useInView(ref, { margin: '600px 0px 600px 0px' })
   const data = useArtworkParticles(src, use3D)
+
+  // Prefetch the (lazy) three.js chunk during idle after load, so scrolling into
+  // a pigment section never waits on a network/parse round-trip.
+  useEffect(() => {
+    if (!use3D) return
+    const t = setTimeout(() => { import('./PigmentCanvas').catch(() => {}) }, 1200)
+    return () => clearTimeout(t)
+  }, [use3D])
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
   const progress = useTransform(scrollYProgress, [0.05, 0.62], [0, 1])
 
