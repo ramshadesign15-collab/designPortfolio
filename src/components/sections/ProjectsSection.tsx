@@ -69,9 +69,8 @@ export function ProjectsSection() {
       <div className="mx-auto max-w-content px-6 pt-28 md:px-10 md:pt-36">
         <header className="flex items-end justify-between border-b border-border-subtle pb-10">
           <div>
-            <Reveal variant="up"><p className="mb-3 font-mono text-sm uppercase tracking-[0.3em] text-accent-1 md:text-[1rem]">Selected Work</p></Reveal>
-            <Reveal variant="clip"><h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>Collections</h2></Reveal>
-            <Reveal variant="up" delay={0.1}><p className="mt-4 max-w-[52ch] text-base text-secondary md:text-lg">Three design stories  from first concept and moodboard through craft, market positioning, and the final shoot.</p></Reveal>
+            <h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>Collections</h2>
+            <p className="mt-4 max-w-[52ch] text-base text-secondary md:text-lg">Three design stories  from first concept and moodboard through craft, market positioning, and the final shoot.</p>
           </div>
           <span aria-hidden className="hidden select-none font-mono text-sm text-muted md:block">{String(ordered.length).padStart(2, '0')} Projects</span>
         </header>

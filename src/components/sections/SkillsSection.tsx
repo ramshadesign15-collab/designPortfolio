@@ -6,8 +6,7 @@ export function SkillsSection() {
     <section id="skills" className="relative py-28 md:py-36">
       <div className="mx-auto max-w-content px-6 md:px-10">
         <header className="mb-12">
-          <Reveal variant="up"><p className="mb-3 font-mono text-sm uppercase tracking-[0.3em] text-accent-1 md:text-[1rem]">Capabilities</p></Reveal>
-          <Reveal variant="clip"><h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>What I work with</h2></Reveal>
+          <h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>What I work with</h2>
         </header>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {skills.categories.map((category, i) => (

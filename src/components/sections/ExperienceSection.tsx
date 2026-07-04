@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { usePortfolio } from '@/hooks/usePortfolio'
 import type { Experience } from '@/types/portfolio'
 const EASE = [0.19, 1, 0.22, 1] as const
-const viewport = { once: false, amount: 0.3 }
+const viewport = { once: true, amount: 0.3 }
 function initialsOf(c: string): string { return c.replace(/[^a-zA-Z\s]/g, '').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? '').join('') }
 function ExperienceRow({ item, index }: { item: Experience; index: number }) {
   return (
@@ -36,7 +36,6 @@ export function ExperienceSection() {
       <div className="mx-auto max-w-content px-6 md:px-10">
         <header className="mb-10 flex items-end justify-between">
           <div>
-            <p className="mb-3 font-mono text-sm uppercase tracking-[0.3em] text-accent-1 md:text-[1rem]">The Path</p>
             <h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>Training & Industry</h2>
           </div>
           <span aria-hidden className="hidden select-none font-display text-[7rem] font-semibold leading-none text-primary/[0.04] md:block">03</span>

@@ -10,8 +10,7 @@ export function ServicesSection() {
       <div className="mx-auto max-w-content px-6 md:px-10">
         <header className="mb-12 flex items-end justify-between">
           <div>
-            <Reveal variant="up"><p className="mb-3 font-mono text-sm uppercase tracking-[0.3em] text-accent-1 md:text-[1rem]">What I Offer</p></Reveal>
-            <Reveal variant="clip"><h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>Services</h2></Reveal>
+            <h2 className="font-display font-semibold text-primary" style={{ fontSize: 'clamp(2.25rem, 6vw, 4.5rem)' }}>Services</h2>
           </div>
           <span aria-hidden className="hidden select-none font-display text-[7rem] font-semibold leading-none text-primary/[0.04] md:block">+</span>
         </header>

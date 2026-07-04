@@ -13,10 +13,7 @@ export function AboutSection() {
       <div className="mx-auto grid max-w-content grid-cols-1 gap-12 px-6 md:grid-cols-[0.8fr_1.2fr] md:gap-16 md:px-10">
         {/* Identity column */}
         <div className="md:sticky md:top-28 md:self-start">
-          <Reveal variant="up"><p className="mb-8 font-mono text-sm uppercase tracking-[0.3em] text-accent-1 md:text-[1rem]">About</p></Reveal>
-          <Reveal variant="up" delay={0.05}>
-            <h2 className="font-display text-4xl font-semibold leading-[1.05] text-primary md:text-6xl">{profile.name}</h2>
-          </Reveal>
+          <h2 className="font-display text-4xl font-semibold leading-[1.05] text-primary md:text-6xl">{profile.name}</h2>
           <Reveal variant="up" delay={0.1}>
             <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-secondary">{profile.role}</p>
             <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted">{profile.specialization}</p>

@@ -70,7 +70,7 @@ function MoodboardSection({ section }: { section: CaseSection }) {
     <div>
       <SectionHeading section={section} /><Body paragraphs={section.body} />
       <div className="mt-10 grid grid-cols-2 items-start gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {images.map((src, i) => (<Reveal key={src} variant="scale" delay={(i % 4) * 0.05}><motion.div whileHover={{ scale: 1.03, rotate: i % 2 === 0 ? 0.8 : -0.8 }} transition={{ type: 'spring', stiffness: 200, damping: 18 }}><ProjectImage src={src} alt={`Moodboard reference ${i + 1}`} fit="contain" tilt={3} /></motion.div></Reveal>))}
+        {images.map((src, i) => (<Reveal key={src} variant="scale" delay={(i % 4) * 0.05}><motion.div whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 200, damping: 18 }}><ProjectImage src={src} alt={`Moodboard reference ${i + 1}`} fit="contain" /></motion.div></Reveal>))}
       </div>
     </div>
   )
@@ -133,7 +133,7 @@ function GallerySection({ section }: { section: CaseSection }) {
       <div className={cn('mt-10 grid items-start gap-5', wide ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-3')}>
         {images.map((src, i) => (
           <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 3) * 0.06}>
-            <ProjectImage src={src} alt={`${section.title ?? 'Gallery'}  ${i + 1}`} fit="contain" aspect={aspect} tilt={4} />
+            <ProjectImage src={src} alt={`${section.title ?? 'Gallery'}  ${i + 1}`} fit="contain" aspect={aspect} />
           </Reveal>
         ))}
       </div>

@@ -17,5 +17,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     if (lenisRef.current) lenisRef.current.scrollTo(target, { offset })
     else if (typeof target === 'string') document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' })
   }, [])
-  return <Ctx.Provider value={{ scrollTo }}>{children}</Ctx.Provider>
+  const stop = useCallback(() => lenisRef.current?.stop(), [])
+  const start = useCallback(() => lenisRef.current?.start(), [])
+  return <Ctx.Provider value={{ scrollTo, stop, start }}>{children}</Ctx.Provider>
 }
