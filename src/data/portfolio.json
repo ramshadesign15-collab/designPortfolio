@@ -378,7 +378,7 @@
       "year": "2025",
       "link": "",
       "highlight": false,
-      "color": "#3E5C9A",
+      "color": "#6684C4",
       "caseStudy": {
         "hero": "/assets/img/projects/regal-wilderness/shoot-1.webp",
         "intro": "Regal Wilderness turns textile offcuts into collectible soft furnishings. A single leopard-silhouette motif, hand-built in patchwork across indigo and royal tones, brings the drama of the wild into refined modern interiors  produced in small batches with women artisans from low-income households.",
@@ -769,22 +769,22 @@
     }
   ],
   "galleryStrip": [
-    "/assets/img/projects/mah-e-noor/moodboard-1.webp",
-    "/assets/img/projects/mah-e-noor/moodboard-2.webp",
-    "/assets/img/projects/mah-e-noor/moodboard-3.webp",
-    "/assets/img/projects/mah-e-noor/moodboard-4.webp",
-    "/assets/img/projects/mah-e-noor/shoot-1.webp",
-    "/assets/img/projects/mah-e-noor/shoot-2.webp",
-    "/assets/img/projects/porcelaina/moodboard-1.webp",
-    "/assets/img/projects/porcelaina/moodboard-2.webp",
-    "/assets/img/projects/porcelaina/moodboard-3.webp",
-    "/assets/img/projects/porcelaina/moodboard-4.webp",
-    "/assets/img/projects/porcelaina/pieces-1.webp",
-    "/assets/img/projects/porcelaina/pieces-2.webp",
-    "/assets/img/projects/regal-wilderness/boards-1.webp",
-    "/assets/img/projects/regal-wilderness/boards-2.webp",
-    "/assets/img/projects/regal-wilderness/boards-3.webp",
-    "/assets/img/projects/regal-wilderness/shoot-1.webp",
-    "/assets/img/projects/regal-wilderness/shoot-2.webp"
+    "/assets/img/strip/mah-e-noor-moodboard-1.webp",
+    "/assets/img/strip/mah-e-noor-moodboard-2.webp",
+    "/assets/img/strip/mah-e-noor-moodboard-3.webp",
+    "/assets/img/strip/mah-e-noor-moodboard-4.webp",
+    "/assets/img/strip/mah-e-noor-shoot-1.webp",
+    "/assets/img/strip/mah-e-noor-shoot-2.webp",
+    "/assets/img/strip/porcelaina-moodboard-1.webp",
+    "/assets/img/strip/porcelaina-moodboard-2.webp",
+    "/assets/img/strip/porcelaina-moodboard-3.webp",
+    "/assets/img/strip/porcelaina-moodboard-4.webp",
+    "/assets/img/strip/porcelaina-pieces-1.webp",
+    "/assets/img/strip/porcelaina-pieces-2.webp",
+    "/assets/img/strip/regal-wilderness-boards-1.webp",
+    "/assets/img/strip/regal-wilderness-boards-2.webp",
+    "/assets/img/strip/regal-wilderness-boards-3.webp",
+    "/assets/img/strip/regal-wilderness-shoot-1.webp",
+    "/assets/img/strip/regal-wilderness-shoot-2.webp"
   ]
 }

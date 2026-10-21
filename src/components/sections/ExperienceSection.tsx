@@ -2,18 +2,18 @@ import { motion } from 'framer-motion'
 import { usePortfolio } from '@/hooks/usePortfolio'
 import type { Experience } from '@/types/portfolio'
 const EASE = [0.19, 1, 0.22, 1] as const
-const viewport = { once: false, amount: 0.3 }
+const viewport = { once: true, amount: 0.3 }
 function initialsOf(c: string): string { return c.replace(/[^a-zA-Z\s]/g, '').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? '').join('') }
 function ExperienceRow({ item, index }: { item: Experience; index: number }) {
   return (
     <div className="relative grid grid-cols-1 gap-6 py-10 md:grid-cols-[auto_1fr_1.2fr] md:gap-10">
       <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewport} transition={{ duration: 0.7, ease: EASE }} className="flex items-center gap-4">
-        <span className="font-display text-4xl font-semibold text-primary/[0.12] md:text-6xl">{String(index + 1).padStart(2, '0')}</span>
+        <span aria-hidden className="font-display text-4xl font-semibold text-primary/[0.12] md:text-6xl">{String(index + 1).padStart(2, '0')}</span>
         <span className="hidden h-2 w-2 rounded-full bg-accent-1 md:block" />
       </motion.div>
       <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewport} transition={{ duration: 0.7, ease: EASE }}>
         <div className="mb-3 flex items-start gap-3">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border-default font-mono text-xs text-accent-1">{initialsOf(item.company)}</span>
+          <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border-default font-mono text-xs text-accent-1">{initialsOf(item.company)}</span>
           <div><h3 className="font-display text-xl font-medium text-primary">{item.role}</h3><p className="text-sm text-secondary">{item.company}</p></div>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -32,7 +32,7 @@ export function ExperienceSection() {
   const { experience } = usePortfolio()
   if (experience.length === 0) return null
   return (
-    <section id="experience" className="relative py-28 md:py-36">
+    <section id="experience" className="relative overflow-x-clip py-28 md:py-36">
       <div className="mx-auto max-w-content px-6 md:px-10">
         <header className="mb-10 flex items-end justify-between">
           <div>

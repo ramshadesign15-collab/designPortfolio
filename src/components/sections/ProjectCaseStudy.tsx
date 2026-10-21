@@ -18,7 +18,7 @@ function SectionHeading({ section }: { section: CaseSection }) {
   return (
     <div className="mb-8 md:mb-12">
       {section.eyebrow && <Reveal variant="up"><p className="mb-4 font-display text-2xl font-semibold uppercase tracking-[0.16em] text-accent-1 md:text-[2rem]">{section.eyebrow}</p></Reveal>}
-      {section.title && <Reveal variant="clip"><h3 className="font-display font-semibold leading-tight text-primary" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3.5rem)' }}>{section.title}</h3></Reveal>}
+      {section.title && <Reveal variant="clip"><h4 className="font-display font-semibold leading-tight text-primary" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3.5rem)' }}>{section.title}</h4></Reveal>}
     </div>
   )
 }
@@ -42,7 +42,7 @@ function OverviewSection({ section }: { section: CaseSection }) {
           {images.map((src, i) => (
             <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 2) * 0.08}>
               <figure>
-                <ProjectImage src={src} alt={captions[i] ?? `${section.title ?? 'Board'}  ${i + 1}`} fit="contain" priority={i < 2} />
+                <ProjectImage src={src} alt={captions[i] ?? `${section.title ?? 'Board'}, image ${i + 1}`} fit="contain" priority={i < 2} />
                 {captions[i] && (
                   <figcaption className="mt-4 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
                     <span className="text-accent-1">{String(i + 1).padStart(2, '0')}</span>{captions[i]}
@@ -59,7 +59,7 @@ function OverviewSection({ section }: { section: CaseSection }) {
     <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
       <div className="md:sticky md:top-28 md:self-start"><SectionHeading section={section} /><Body paragraphs={section.body} /></div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        {images.map((src, i) => (<Reveal key={src} variant={i % 2 === 0 ? 'right' : 'up'} delay={i * 0.08} className={cn(images.length === 1 && 'sm:col-span-2')}><ProjectImage src={src} alt={`${section.title ?? 'Project'}  ${i + 1}`} fit="contain" aspect={section.aspect} /></Reveal>))}
+        {images.map((src, i) => (<Reveal key={src} variant={i % 2 === 0 ? 'right' : 'up'} delay={i * 0.08} className={cn(images.length === 1 && 'sm:col-span-2')}><ProjectImage src={src} alt={`${section.title ?? 'Project'}, image ${i + 1}`} fit="contain" aspect={section.aspect} /></Reveal>))}
       </div>
     </div>
   )
@@ -108,7 +108,7 @@ function SpecSection({ section, color }: { section: CaseSection; color: string }
         {specs.map((group, i) => (
           <Reveal key={group.label} variant="up" delay={(i % 3) * 0.07}>
             <div className="h-full rounded-lg border border-border-subtle bg-surface p-6 transition-colors hover:border-accent-1/50">
-              <div className="mb-4 flex items-center gap-2"><span className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} /><h4 className="font-mono text-xs uppercase tracking-[0.18em] text-primary">{group.label}</h4></div>
+              <div className="mb-4 flex items-center gap-2"><span className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} /><h5 className="font-mono text-xs uppercase tracking-[0.18em] text-primary">{group.label}</h5></div>
               <ul className="flex flex-col gap-2.5">{group.items.map((item) => (<li key={item} className="flex gap-2 text-sm leading-relaxed text-secondary"><span className="mt-1.5 h-1 w-1 shrink-0 rounded-full" style={{ backgroundColor: color }} />{item}</li>))}</ul>
             </div>
           </Reveal>
@@ -120,10 +120,9 @@ function SpecSection({ section, color }: { section: CaseSection; color: string }
 function GallerySection({ section }: { section: CaseSection }) {
   const images = section.images ?? []
   const wide = section.layout === 'wide'
-  // Uniform tile size: process/"making" galleries are landscape, the rest
-  // (shoot swatches, surfaces) are portrait. A fixed aspect ratio per section
-  // keeps every tile identical; object-contain inside avoids cropping labels.
-  const aspect = section.id.includes('making') ? 'aspect-[4/3]' : 'aspect-[3/4]'
+  // Uniform portrait tiles: every gallery (making, shoot, surfaces) is now mostly
+  // portrait photos. object-contain inside avoids cropping labels.
+  const aspect = 'aspect-[3/4]'
   return (
     <div>
       <SectionHeading section={section} /><Body paragraphs={section.body} />
@@ -133,7 +132,7 @@ function GallerySection({ section }: { section: CaseSection }) {
       <div className={cn('mt-10 grid items-start gap-5', wide ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-3')}>
         {images.map((src, i) => (
           <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 3) * 0.06}>
-            <ProjectImage src={src} alt={`${section.title ?? 'Gallery'}  ${i + 1}`} fit="contain" aspect={aspect} tilt={4} />
+            <ProjectImage src={src} alt={`${section.title ?? 'Gallery'}, image ${i + 1}`} fit="contain" aspect={aspect} tilt={4} />
           </Reveal>
         ))}
       </div>
@@ -164,7 +163,7 @@ export function ProjectCaseStudy({ project }: Props) {
               <dl className="grid grid-cols-2 gap-x-6 gap-y-5">{cs.meta.map((m) => (<div key={m.label}><dt className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">{m.label}</dt><dd className="mt-1 text-sm text-primary">{m.value}</dd></div>))}</dl>
             </Reveal>
             <Reveal variant="up" delay={0.18}>
-              <div><p className="mb-3 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">Palette</p><div className="flex flex-wrap gap-2">{cs.palette.map((sw) => <span key={sw.hex} className="h-7 w-7 rounded-full border border-white/10" style={{ backgroundColor: sw.hex }} title={`${sw.name} ${sw.hex}`} />)}</div></div>
+              <div><p className="mb-3 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">Palette</p><div className="flex flex-wrap gap-2">{cs.palette.map((sw) => <span key={sw.hex} className="h-7 w-7 rounded-full border border-white/10" style={{ backgroundColor: sw.hex }} title={`${sw.name} ${sw.hex}`} role="img" aria-label={`${sw.name} ${sw.hex}`} />)}</div></div>
             </Reveal>
             <Reveal variant="up" delay={0.24}>
               <div className="flex flex-wrap gap-2">{project.stack.map((t) => <span key={t} className="rounded-full border border-border-subtle px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-secondary">{t}</span>)}</div>

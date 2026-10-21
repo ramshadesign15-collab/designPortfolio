@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLenis } from '@/components/layout/lenis-context'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { usePortfolio } from '@/hooks/usePortfolio'
@@ -20,12 +21,11 @@ function ProjectDivider({
   const num = String(index + 1).padStart(2, '0')
   const tot = String(total).padStart(2, '0')
   return (
-    <button
-      type="button"
-      onClick={onToggle}
-      aria-expanded={open}
-      aria-controls={panelId}
-      className="group relative block w-full cursor-pointer overflow-hidden border-y border-border-default bg-surface/60 py-16 text-center transition-colors hover:bg-surface/80 md:py-24"
+    // The title's button is stretched over the whole band (after:inset-0), so the
+    // band stays one big click target while the <h3> stays a real heading.
+    <div
+      id={`project-${project.id}`}
+      className="group relative block w-full cursor-pointer overflow-hidden border-y border-border-default bg-surface/60 py-16 text-center transition-colors hover:bg-surface/80 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:-outline-offset-4 has-[:focus-visible]:outline-accent-1 md:py-24"
     >
       {/* coloured wash + top accent line in the project's own colour */}
       <div aria-hidden className="absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(to right, transparent, ${project.color}, transparent)` }} />
@@ -38,7 +38,9 @@ function ProjectDivider({
               Collection {num} <span className="text-muted">/ {tot}</span>
             </span>
             <h3 className="font-display font-semibold leading-none text-primary" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)' }}>
-              {project.title}
+              <button type="button" onClick={onToggle} aria-expanded={open} aria-controls={panelId} className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none">
+                {project.title}
+              </button>
             </h3>
             <p className="max-w-[44ch] text-sm text-secondary md:text-[1rem]">{project.subtitle}</p>
             <span
@@ -54,7 +56,7 @@ function ProjectDivider({
           </div>
         </Reveal>
       </div>
-    </button>
+    </div>
   )
 }
 
@@ -63,6 +65,14 @@ export function ProjectsSection() {
   const ordered = [...projects].sort((a, b) => Number(b.highlight) - Number(a.highlight))
   // Accordion: one open at a time; all collapsed by default.
   const [openId, setOpenId] = useState<string | null>(null)
+  const { scrollTo } = useLenis()
+  const toggle = (id: string) => {
+    const opening = openId !== id
+    setOpenId(opening ? id : null)
+    // Closing a panel above shifts this band up out of view; bring it back once
+    // the 0.4s exit finishes. shortcut: fixed delay, switch to onExitComplete if timings change.
+    if (opening && openId) setTimeout(() => scrollTo(`#project-${id} button`, -80), 450)
+  }
 
   return (
     <section id="projects" className="relative">
@@ -88,7 +98,7 @@ export function ProjectsSection() {
                 index={index}
                 total={ordered.length}
                 open={open}
-                onToggle={() => setOpenId((prev) => (prev === project.id ? null : project.id))}
+                onToggle={() => toggle(project.id)}
                 panelId={panelId}
               />
               <AnimatePresence initial={false}>

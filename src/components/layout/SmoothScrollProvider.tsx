@@ -15,7 +15,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   }, [])
   const scrollTo = useCallback((target: string | number, offset = 0) => {
     if (lenisRef.current) lenisRef.current.scrollTo(target, { offset })
-    else if (typeof target === 'string') document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' })
+    else if (typeof target === 'string') document.querySelector(target)?.scrollIntoView({ behavior: 'auto' })
+    // move focus with the scroll so keyboard and screen-reader users land in the section
+    const el = typeof target === 'string' ? document.querySelector<HTMLElement>(target) : null
+    if (el) { if (el.tabIndex < 0 && !el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1'); el.focus({ preventScroll: true }) }
   }, [])
   return <Ctx.Provider value={{ scrollTo }}>{children}</Ctx.Provider>
 }

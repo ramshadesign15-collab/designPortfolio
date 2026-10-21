@@ -23,7 +23,7 @@ export function AboutSection() {
             <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted">{profile.location}</p>
           </Reveal>
           <Reveal variant="up" delay={0.15}>
-            <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-1 border-b border-border-default pb-1 font-mono text-sm text-secondary transition-colors hover:border-accent-1 hover:text-accent-1">Full résumé ↗</a>
+            <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-1 border-b border-border-default pb-1 font-mono text-sm text-secondary transition-colors hover:border-accent-1 hover:text-accent-1">Full résumé <span aria-hidden>↗</span><span className="sr-only"> (opens in new tab)</span></a>
           </Reveal>
         </div>
 
@@ -31,12 +31,12 @@ export function AboutSection() {
         <div>
           <AnimatedText text={profile.bio} className="font-display text-2xl font-medium leading-snug text-balance text-primary md:text-[2.1rem]" />
 
-          <div className="mt-10 grid grid-cols-3 gap-3">
+          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} variant="scale" delay={i * 0.08}>
                 <div className="rounded-lg border border-border-subtle bg-elevated p-4 md:p-5">
                   <p className="font-display text-2xl font-semibold text-accent-1 md:text-4xl">{stat.value}</p>
-                  <p className="mt-1 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-secondary md:text-[0.65rem]">{stat.label}</p>
+                  <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-secondary">{stat.label}</p>
                 </div>
               </Reveal>
             ))}

@@ -1,8 +1,9 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { usePortfolio } from '@/hooks/usePortfolio'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useIdle } from '@/hooks/useIdle'
 import { useLenis } from '@/components/layout/lenis-context'
 import { Magnet } from '@/components/ui/Magnet'
 
@@ -18,6 +19,9 @@ export function HeroSection() {
   const reducedMotion = useReducedMotion()
   const { scrollTo } = useLenis()
   const [scrolled, setScrolled] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+  const inView = useInView(ref)
+  const idle = useIdle()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100)
@@ -26,14 +30,14 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section id="top" className="relative min-h-[100svh] w-full overflow-hidden">
+    <section ref={ref} id="top" className="relative min-h-[100svh] w-full overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-20" style={{ background: 'radial-gradient(120% 90% at 70% 30%, rgba(62,92,154,0.35), transparent 55%), linear-gradient(to bottom, rgba(7,9,15,0.55) 0%, rgba(7,9,15,0.35) 40%, var(--bg-base) 96%)' }} />
 
-      <div className="absolute inset-0 -z-10">
-        <Suspense fallback={null}><CinematicLayer reducedMotion={reducedMotion} /></Suspense>
+      <div aria-hidden className="absolute inset-0 -z-10">
+        {idle && <Suspense fallback={null}><CinematicLayer reducedMotion={reducedMotion} paused={!inView} /></Suspense>}
       </div>
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-content grid-cols-1 items-center gap-8 px-6 md:grid-cols-[1fr_0.9fr] md:px-10">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-content grid-cols-1 items-center gap-8 px-6 pt-28 md:grid-cols-[1fr_0.9fr] md:px-10 md:pt-0">
         <motion.div variants={container} initial="hidden" animate="show" className="order-2 py-10 md:order-1 md:py-32">
           <motion.p variants={fadeUp} className="mb-6 font-mono text-xs font-medium uppercase tracking-[0.3em] text-secondary"><span className="mr-2 inline-block h-px w-8 translate-y-[-3px] bg-accent-1 align-middle" />{profile.role}</motion.p>
           <motion.h1 variants={fadeUp} className="font-display font-semibold leading-[0.92] text-balance" style={{ fontSize: 'clamp(3rem, 9vw, 8rem)' }}>
@@ -52,15 +56,15 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: EASE, delay: 0.2 }} className="relative order-1 mx-auto w-full max-w-[440px] md:order-2 md:max-w-none">
+        <motion.div initial={{ scale: 0.92 }} animate={{ scale: 1 }} transition={{ duration: 1, ease: EASE, delay: 0.2 }} className="relative order-1 mx-auto w-full max-w-[440px] md:order-2 md:max-w-none">
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border-default bg-elevated shadow-2xl shadow-black/50">
-            <img src={PORTRAIT} alt={profile.name} className="h-full w-full object-cover" />
+            <img src={PORTRAIT} alt={`Portrait of ${profile.name}`} width={1160} height={1355} fetchPriority="high" className="h-full w-full object-cover" />
             <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-base/70 to-transparent" />
           </div>
         </motion.div>
       </div>
 
-      <motion.div aria-hidden animate={{ opacity: scrolled ? 0 : 1 }} transition={{ duration: 0.4 }} className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3">
+      <motion.div aria-hidden animate={{ opacity: scrolled ? 0 : 1 }} transition={{ duration: 0.4 }} className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 md:flex flex-col items-center gap-3">
         <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-muted [writing-mode:vertical-rl]">Scroll</span>
         <motion.span animate={reducedMotion ? {} : { scaleY: [0.3, 1, 0.3] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }} className="block h-10 w-px origin-top bg-gradient-to-b from-accent-1 to-transparent" />
       </motion.div>

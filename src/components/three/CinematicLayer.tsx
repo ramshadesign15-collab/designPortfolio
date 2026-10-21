@@ -52,11 +52,11 @@ function Bokeh({ count, animate }: { count: number; animate: boolean }) {
   )
 }
 
-export function CinematicLayer({ reducedMotion }: { reducedMotion: boolean }) {
+export function CinematicLayer({ reducedMotion, paused }: { reducedMotion: boolean; paused: boolean }) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const count = isMobile ? 90 : 200
   return (
-    <Canvas camera={{ position: [0, 0, 9], fov: 50 }} gl={{ alpha: true, antialias: true }} dpr={[1, 2]} style={{ pointerEvents: 'none' }}>
+    <Canvas frameloop={paused ? 'never' : reducedMotion ? 'demand' : 'always'} camera={{ position: [0, 0, 9], fov: 50 }} gl={{ alpha: true, antialias: true }} dpr={[1, 2]} style={{ pointerEvents: 'none' }}>
       <Bokeh count={count} animate={!reducedMotion} />
     </Canvas>
   )

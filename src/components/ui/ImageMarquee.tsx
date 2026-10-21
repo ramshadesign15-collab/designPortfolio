@@ -9,17 +9,17 @@ interface RowProps {
 function Row({ images, reverse = false, durationSeconds = 60 }: RowProps) {
   const doubled = [...images, ...images]
   return (
-    <div className="flex w-max overflow-hidden">
+    <div className="group flex w-max overflow-hidden">
       <div
         className={cn(
-          'flex shrink-0 gap-4 motion-safe:[animation:marquee_var(--imd)_linear_infinite]',
+          'flex shrink-0 gap-4 motion-safe:[animation:marquee_var(--imd)_linear_infinite] group-hover:[animation-play-state:paused]',
           reverse && 'motion-safe:[animation-direction:reverse]',
         )}
         style={{ ['--imd' as string]: `${durationSeconds}s` }}
       >
         {doubled.map((src, i) => (
           <div key={i} className="h-44 w-64 shrink-0 overflow-hidden rounded-xl border border-border-subtle bg-elevated md:h-52 md:w-80">
-            <img src={src} alt="" loading="lazy" decoding="async" draggable={false} className="h-full w-full object-cover" />
+            <img src={src} alt="" width={320} height={208} loading="lazy" decoding="async" draggable={false} className="h-full w-full object-cover" />
           </div>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 interface ProjectImageProps {
   src: string
@@ -26,7 +27,9 @@ export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, clas
   const ref = useRef<HTMLDivElement>(null)
   const [loaded, setLoaded] = useState(false)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [tilt, 0, -tilt])
+  // style-bound motion values bypass MotionConfig, so honour reduced motion here
+  const t = useReducedMotion() ? 0 : tilt
+  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [t, 0, -t])
 
   return (
     <div className="[perspective:1200px]">
@@ -45,8 +48,10 @@ export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, clas
           src={src}
           alt={alt}
           loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : undefined}
           decoding="async"
           onLoad={() => setLoaded(true)}
+          onError={() => setLoaded(true)}
           className={cn(
             'transition-opacity duration-700',
             aspect
