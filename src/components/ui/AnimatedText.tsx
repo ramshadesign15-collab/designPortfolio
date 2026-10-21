@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 interface AnimatedTextProps {
   text: string
@@ -21,6 +22,8 @@ function Char({ char, start, end, progress }: { char: string; start: number; end
 export function AnimatedText({ text, className }: AnimatedTextProps) {
   const ref = useRef<HTMLParagraphElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.85', 'end 0.35'] })
+  const reduced = useReducedMotion()
+  if (reduced) return <p className={cn(className)}>{text}</p>
   const words = text.split(' ')
   const total = text.length
   // Pre-compute each word's starting character index (word length + 1 for the
@@ -32,7 +35,10 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
     acc += Array.from(word).length + 1
   }
   return (
-    <p ref={ref} className={cn(className)} aria-label={text}>
+    <p ref={ref} className={cn(className)}>
+      {/* aria-label is ignored on <p>; give screen readers the plain text and hide the per-letter spans */}
+      <span className="sr-only">{text}</span>
+      <span aria-hidden>
       {words.map((word, wi) => {
         const chars = Array.from(word)
         const base = wordOffsets[wi]
@@ -48,6 +54,7 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
           </span>
         )
       })}
+      </span>
     </p>
   )
 }

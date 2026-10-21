@@ -37,6 +37,7 @@ function DepthField({ count, animate }: { count: number; animate: boolean }) {
       node.rotation.y = t * 0.02 + state.pointer.x * 0.15
       node.rotation.x = state.pointer.y * 0.1
     }
+    if (!animate) return
     // Parallax: the whole field rises as you scroll down  depth on every section.
     node.position.y = scroll * 18
     node.position.z = -2 + scroll * 4
@@ -61,6 +62,7 @@ function FloatingForms({ animate }: { animate: boolean }) {
     const scroll = typeof window !== 'undefined'
       ? window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight)
       : 0
+    if (!animate) return
     // Different shapes orbit through the viewport as you scroll.
     group.current.position.y = scroll * 26
     group.current.rotation.y = state.clock.elapsedTime * 0.05
@@ -100,7 +102,7 @@ export function Scene3D({ reducedMotion }: { reducedMotion: boolean }) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const count = isMobile ? 120 : 320
   return (
-    <Canvas camera={{ position: [0, 0, 12], fov: 55 }} gl={{ alpha: true, antialias: true }} dpr={[1, 1.8]} style={{ pointerEvents: 'none' }}>
+    <Canvas frameloop={reducedMotion ? 'demand' : 'always'} camera={{ position: [0, 0, 12], fov: 55 }} gl={{ alpha: true, antialias: true }} dpr={[1, 1.8]} style={{ pointerEvents: 'none' }}>
       <ambientLight intensity={0.6} />
       <pointLight position={[6, 6, 6]} color="#e3bf7a" intensity={2} decay={0} />
       <pointLight position={[-6, -4, 4]} color={INDIGO} intensity={1.6} decay={0} />

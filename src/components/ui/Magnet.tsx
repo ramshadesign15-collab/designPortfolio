@@ -15,7 +15,7 @@ export function Magnet({ children, padding = 90, strength = 3, className }: Magn
   const [active, setActive] = useState(false)
 
   useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) return
+    if (window.matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches) return
     const onMove = (e: MouseEvent) => {
       const el = ref.current
       if (!el) return
@@ -29,7 +29,7 @@ export function Magnet({ children, padding = 90, strength = 3, className }: Magn
         setPos({ x: dx / strength, y: dy / strength })
       } else {
         setActive(false)
-        setPos({ x: 0, y: 0 })
+        setPos((p) => (p.x === 0 && p.y === 0 ? p : { x: 0, y: 0 })) // bail out: no re-render on every far-away mousemove
       }
     }
     window.addEventListener('mousemove', onMove, { passive: true })
