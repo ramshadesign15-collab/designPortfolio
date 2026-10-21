@@ -6,7 +6,7 @@
     "role": "Textile & Surface Designer",
     "specialization": "Surface Design · Home Décor · Heritage Craft",
     "location": "Jodhpur · Jaipur · Lucknow, India",
-    "bio": "I'm a final-year Textile Design student (B.Des) at Government Women Polytechnic College, Jaipur, with a deep love for surface design, home décor, and artistic storytelling. My work blends heritage art  Madhubani, Pichwai, Bani Thani, and blue pottery  with contemporary interiors and thoughtful craftsmanship. With a keen eye for colour harmony, motif development, and material exploration, I create pieces that connect tradition with modern living.",
+    "bio": "I'm a final-year Textile Design student (B.Des) at Government Women Polytechnic College, Jaipur, with a deep love for surface design, home décor, and artistic storytelling. My work draws from India's traditional art forms and crafts, reinterpreting them for contemporary interiors through thoughtful craftsmanship. With a keen eye for colour harmony, motif development, and material exploration, I create pieces that connect tradition with modern living.",
     "resume": "/assets/resume.pdf",
     "social": {
       "email": "ansari.ramsha2003@gmail.com",
@@ -222,55 +222,42 @@
               "The dome silhouette borrows from temple arches and palace windows, framing the painted night sky like a devotional scroll."
             ],
             "images": [
-              "/assets/img/projects/mah-e-noor/artwork-1.webp",
-              "/assets/img/projects/mah-e-noor/artwork-2.webp",
-              "/assets/img/projects/mah-e-noor/artwork-3.webp",
-              "/assets/img/projects/mah-e-noor/artwork-4.webp",
-              "/assets/img/projects/mah-e-noor/artwork-5.webp"
+              "/assets/img/projects/mah-e-noor/artwork-4.webp"
             ]
           },
           {
             "id": "mood",
-            "kind": "moodboard",
-            "eyebrow": "Inspiration & Mood",
+            "kind": "overview",
+            "eyebrow": "Inspiration, Mood Colour",
             "title": "Where Two Worlds Meet",
-            "layout": "collage",
+            "layout": "showcase",
             "body": [
               "The mood board fuses The Starry Night with Bani Thani, blending raw emotion with courtly elegance.",
               "Indian heritage, architecture, and the storytelling rhythm of the scroll format set the tone  dreamy and royal."
             ],
+            "captions": [
+              "Mood Board  Tone, texture & atmosphere",
+              "Inspiration Board  Source references & motif",
+              "Colour Palette  Starlight, Blue Skies, Crescent Moon, City at Night & Darkest Blue"
+            ],
             "images": [
-              "/assets/img/projects/mah-e-noor/moodboard-1.webp",
-              "/assets/img/projects/mah-e-noor/moodboard-2.webp",
-              "/assets/img/projects/mah-e-noor/moodboard-3.webp",
-              "/assets/img/projects/mah-e-noor/moodboard-4.webp",
-              "/assets/img/projects/mah-e-noor/moodboard-5.webp",
-              "/assets/img/projects/mah-e-noor/moodboard-6.webp",
-              "/assets/img/projects/mah-e-noor/moodboard-7.webp",
-              "/assets/img/projects/mah-e-noor/moodboard-8.webp"
+              "/assets/img/projects/mah-e-noor/boards-1.webp",
+              "/assets/img/projects/mah-e-noor/boards-2.webp",
+              "/assets/img/projects/mah-e-noor/boards-3.webp"
             ]
           },
           {
             "id": "vm",
-            "kind": "statement",
+            "kind": "overview",
             "title": "Vision & Mission",
-            "layout": "duo",
-            "statements": [
-              {
-                "label": "Vision",
-                "text": "To merge Western and Indian art into a timeless scroll design that reflects beauty, culture, and emotion."
-              },
-              {
-                "label": "Mission",
-                "text": "To reinterpret Starry Night and Bani Thani through contemporary, textile-inspired storytelling and elegant visual composition."
-              }
+            "layout": "showcase",
+            "captions": [
+              "Vision",
+              "Mission"
             ],
             "images": [
-              "/assets/img/projects/mah-e-noor/statement-1.webp",
-              "/assets/img/projects/mah-e-noor/statement-2.webp",
-              "/assets/img/projects/mah-e-noor/statement-3.webp",
-              "/assets/img/projects/mah-e-noor/statement-4.webp",
-              "/assets/img/projects/mah-e-noor/statement-5.webp"
+              "/assets/img/projects/mah-e-noor/vm-1.webp",
+              "/assets/img/projects/mah-e-noor/vm-2.webp"
             ]
           },
           {
