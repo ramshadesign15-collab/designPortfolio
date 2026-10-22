@@ -330,17 +330,15 @@
           },
           {
             "id": "making",
-            "kind": "gallery",
+            "kind": "overview",
             "eyebrow": "Behind the Work",
             "title": "The Making",
-            "layout": "grid",
+            "layout": "showcase",
             "body": [
               "From blank cotton to finished scroll  painting, layering, and hand-embroidering each section in small batches."
             ],
             "images": [
-              "/assets/img/projects/mah-e-noor/process-3.webp",
-              "/assets/img/projects/mah-e-noor/process-6.webp",
-              "/assets/img/projects/mah-e-noor/process-8.webp"
+              "/assets/img/projects/mah-e-noor/making-1.webp"
             ]
           },
           {
@@ -349,14 +347,13 @@
             "eyebrow": "The Result",
             "title": "The Shoot",
             "layout": "wide",
+            "aspect": "aspect-[820/1258]",
+            "width": "max-w-sm",
             "body": [
               "Indigo Impressions  a nocturnal heritage narrative, styled and photographed as a finished collector's piece."
             ],
             "images": [
-              "/assets/img/projects/mah-e-noor/shoot-1.webp",
-              "/assets/img/projects/mah-e-noor/shoot-2.webp",
-              "/assets/img/projects/mah-e-noor/shoot-3.webp",
-              "/assets/img/projects/mah-e-noor/shoot-4.webp"
+              "/assets/img/projects/mah-e-noor/shoot-final.webp"
             ]
           }
         ]
@@ -568,6 +565,8 @@
             "eyebrow": "The Result",
             "title": "The Shoot",
             "layout": "wide",
+            "aspect": "aspect-[2/3]",
+            "width": "max-w-4xl",
             "body": [
               "The finished collection, styled in context as premium, collectible soft furnishings."
             ],

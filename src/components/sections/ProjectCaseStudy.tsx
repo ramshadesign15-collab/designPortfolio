@@ -40,7 +40,8 @@ function OverviewSection({ section }: { section: CaseSection }) {
         <div className="max-w-3xl"><SectionHeading section={section} /><Body paragraphs={section.body} /></div>
         <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-12">
           {images.map((src, i) => (
-            <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 2) * 0.08}>
+            // a lone last board sits centred under the pair above
+            <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 2) * 0.08} className={cn(images.length % 2 === 1 && i === images.length - 1 && 'lg:col-span-2 lg:mx-auto lg:w-2/3')}>
               <figure>
                 <ProjectImage src={src} alt={captions[i] ?? `${section.title ?? 'Board'}, image ${i + 1}`} fit="contain" priority={i < 2} />
                 {captions[i] && (
@@ -122,16 +123,16 @@ function GallerySection({ section }: { section: CaseSection }) {
   const wide = section.layout === 'wide'
   // Uniform portrait tiles: every gallery (making, shoot, surfaces) is now mostly
   // portrait photos. object-contain inside avoids cropping labels.
-  const aspect = 'aspect-[3/4]'
+  const aspect = section.aspect ?? 'aspect-[3/4]'
   return (
     <div>
       <SectionHeading section={section} /><Body paragraphs={section.body} />
       {/* Ordered grid: lays images out left-to-right, top-to-bottom in source
           order so numbered sequences (REPEAT 1…N) read in order. CSS columns
           fill column-first and scramble the visual sequence. */}
-      <div className={cn('mt-10 grid items-start gap-5', wide ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-3')}>
+      <div className={cn('mt-10 grid items-start gap-5', wide ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-3', section.width && 'mx-auto', section.width)}>
         {images.map((src, i) => (
-          <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 3) * 0.06}>
+          <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 3) * 0.06} className={cn(images.length === 1 && 'col-span-full')}>
             <ProjectImage src={src} alt={`${section.title ?? 'Gallery'}, image ${i + 1}`} fit="contain" aspect={aspect} tilt={4} />
           </Reveal>
         ))}

@@ -16,6 +16,9 @@ export interface CaseSection {
   /** Tailwind aspect-ratio class (e.g. 'aspect-square') to force uniform image
    *  tiles when a section's source images have mismatched native ratios. */
   aspect?: string
+  /** Tailwind max-width class (e.g. 'max-w-4xl') that shrinks and centres a
+   *  gallery's image grid when full-width tiles are too large. */
+  width?: string
   /** Optional per-image captions, shown beneath each image in the 'showcase'
    *  overview layout so content-rich boards read as standalone, labelled pieces. */
   captions?: string[]
