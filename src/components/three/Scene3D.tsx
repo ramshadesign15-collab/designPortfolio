@@ -9,6 +9,8 @@ const PORCELAIN: [number, number, number] = [0.498, 0.659, 0.788]
 const INDIGO = '#3e5c9a'
 
 function rng(i: number) { return (Math.sin(i * 127.1) * 43758.5453) % 1 }
+/** 0 at page top, 1 at bottom. */
+function scrollProgress() { return window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight) }
 
 /** Deep, slowly drifting particle field that parallaxes with page scroll. */
 function DepthField({ count, animate }: { count: number; animate: boolean }) {
@@ -28,17 +30,11 @@ function DepthField({ count, animate }: { count: number; animate: boolean }) {
 
   useFrame((state) => {
     const node = ref.current
-    if (!node) return
-    const scroll = typeof window !== 'undefined'
-      ? window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight)
-      : 0
-    if (animate) {
-      const t = state.clock.elapsedTime
-      node.rotation.y = t * 0.02 + state.pointer.x * 0.15
-      node.rotation.x = state.pointer.y * 0.1
-    }
-    if (!animate) return
+    if (!node || !animate) return
+    node.rotation.y = state.clock.elapsedTime * 0.02 + state.pointer.x * 0.15
+    node.rotation.x = state.pointer.y * 0.1
     // Parallax: the whole field rises as you scroll down  depth on every section.
+    const scroll = scrollProgress()
     node.position.y = scroll * 18
     node.position.z = -2 + scroll * 4
   })
@@ -58,13 +54,9 @@ function DepthField({ count, animate }: { count: number; animate: boolean }) {
 function FloatingForms({ animate }: { animate: boolean }) {
   const group = useRef<Group>(null)
   useFrame((state) => {
-    if (!group.current) return
-    const scroll = typeof window !== 'undefined'
-      ? window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight)
-      : 0
-    if (!animate) return
+    if (!group.current || !animate) return
     // Different shapes orbit through the viewport as you scroll.
-    group.current.position.y = scroll * 26
+    group.current.position.y = scrollProgress() * 26
     group.current.rotation.y = state.clock.elapsedTime * 0.05
   })
   return (

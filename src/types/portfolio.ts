@@ -8,10 +8,10 @@ export interface EducationItem { id: string; qualification: string; institution:
 export interface PaletteSwatch { name: string; hex: string }
 export interface ProjectMeta { label: string; value: string }
 export interface SpecGroup { label: string; items: string[] }
-export type CaseSectionLayout = 'duo' | 'stack' | 'grid' | 'wide' | 'collage' | 'showcase'
+export type CaseSectionLayout = 'grid' | 'wide' | 'showcase'
 export interface CaseSection {
   id: string
-  kind: 'overview' | 'moodboard' | 'statement' | 'spec' | 'gallery'
+  kind: 'overview' | 'spec' | 'gallery'
   eyebrow?: string; title?: string; body?: string[]; layout?: CaseSectionLayout
   /** Tailwind aspect-ratio class (e.g. 'aspect-square') to force uniform image
    *  tiles when a section's source images have mismatched native ratios. */
@@ -22,9 +22,13 @@ export interface CaseSection {
   /** Optional per-image captions, shown beneath each image in the 'showcase'
    *  overview layout so content-rich boards read as standalone, labelled pieces. */
   captions?: string[]
-  images?: string[]; specs?: SpecGroup[]; statements?: { label: string; text: string }[]
+  /** Tailwind classes nudging the image column of a two-column overview (e.g. 'md:mt-32' to sit lower). */
+  offset?: string
+  /** Render images frameless (no card) so cut-out / transparent images float on the page. */
+  bare?: boolean
+  images?: string[]; specs?: SpecGroup[]
 }
-export interface CaseStudy { hero: string; intro: string; meta: ProjectMeta[]; palette: PaletteSwatch[]; sections: CaseSection[] }
+export interface CaseStudy { intro: string; meta: ProjectMeta[]; palette: PaletteSwatch[]; sections: CaseSection[] }
 export interface Project { id: string; title: string; subtitle: string; description: string; stack: string[]; role: string; year: string; link: string; highlight: boolean; color: string; caseStudy: CaseStudy }
 export interface Service {
   title: string
@@ -32,4 +36,4 @@ export interface Service {
   items: string[]
 }
 
-export interface Portfolio { profile: Profile; stats: Stat[]; skills: Skills; experience: Experience[]; education: EducationItem[]; projects: Project[]; services: Service[]; galleryStrip: string[]; testimonials: unknown[] }
+export interface Portfolio { profile: Profile; stats: Stat[]; skills: Skills; experience: Experience[]; education: EducationItem[]; projects: Project[]; services: Service[]; galleryStrip: string[] }

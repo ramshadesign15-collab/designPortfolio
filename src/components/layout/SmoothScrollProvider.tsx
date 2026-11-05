@@ -13,9 +13,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     raf = requestAnimationFrame(loop)
     return () => { cancelAnimationFrame(raf); lenis.destroy(); lenisRef.current = null }
   }, [])
-  const scrollTo = useCallback((target: string | number, offset = 0) => {
-    if (lenisRef.current) lenisRef.current.scrollTo(target, { offset })
-    else if (typeof target === 'string') document.querySelector(target)?.scrollIntoView({ behavior: 'auto' })
+  const scrollTo = useCallback((target: string | number, offset = 0, immediate = false) => {
+    if (lenisRef.current) lenisRef.current.scrollTo(target, { offset, immediate })
+    else if (typeof target === 'number') window.scrollTo(0, target + offset)
+    else document.querySelector(target)?.scrollIntoView({ behavior: 'auto' })
     // move focus with the scroll so keyboard and screen-reader users land in the section
     const el = typeof target === 'string' ? document.querySelector<HTMLElement>(target) : null
     if (el) { if (el.tabIndex < 0 && !el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1'); el.focus({ preventScroll: true }) }
