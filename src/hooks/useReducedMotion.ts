@@ -1,19 +1,4 @@
-import { useSyncExternalStore } from 'react'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
-const QUERY = '(prefers-reduced-motion: reduce)'
-
-function subscribe(callback: () => void): () => void {
-  const mq = window.matchMedia(QUERY)
-  mq.addEventListener('change', callback)
-  return () => mq.removeEventListener('change', callback)
-}
-
-/** Reactive `prefers-reduced-motion`. Reads synchronously on first render
- *  (no animation flash) and updates if the OS setting changes. */
-export function useReducedMotion(): boolean {
-  return useSyncExternalStore(
-    subscribe,
-    () => window.matchMedia(QUERY).matches,
-    () => false,
-  )
-}
+/** Reactive `prefers-reduced-motion`: read on first render (no animation flash), updates if the OS setting changes. */
+export const useReducedMotion = (): boolean => useMediaQuery('(prefers-reduced-motion: reduce)')

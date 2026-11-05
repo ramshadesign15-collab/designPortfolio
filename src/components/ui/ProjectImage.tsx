@@ -6,15 +6,11 @@ import { useReducedMotion } from '@/hooks/useReducedMotion'
 interface ProjectImageProps {
   src: string
   alt: string
-  /** 'contain' shows the FULL image (no crop) on a matted frame; 'cover' fills. */
-  fit?: 'cover' | 'contain'
   /** Tailwind aspect-ratio class (e.g. 'aspect-[3/4]'). When set, every tile
    *  takes this exact ratio so a grid of mixed-size images stays uniform; the
    *  image is letterboxed with object-contain so nothing is ever cropped. */
   aspect?: string
   tilt?: number
-  className?: string
-  frameClassName?: string
   priority?: boolean
   /** No card frame: transparent cut-outs float on the page with a soft shadow. */
   bare?: boolean
@@ -22,10 +18,10 @@ interface ProjectImageProps {
 
 /**
  * Displays a project image with a soft load-fade and a subtle scroll-driven
- * 3D rotateY tilt. Default 'contain' renders the image at its natural ratio so
- * nothing is ever cropped. Pass `aspect` to force a uniform tile size.
+ * 3D rotateY tilt. Renders the FULL image (no crop) on a matted frame at its
+ * natural ratio. Pass `aspect` to force a uniform tile size.
  */
-export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, className, frameClassName, priority = false, bare = false }: ProjectImageProps) {
+export function ProjectImage({ src, alt, aspect, tilt = 5, priority = false, bare = false }: ProjectImageProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [loaded, setLoaded] = useState(false)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
@@ -38,14 +34,7 @@ export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, clas
       <motion.div
         ref={ref}
         style={{ rotateY, transformStyle: 'preserve-3d' }}
-        className={cn(
-          'relative',
-          !bare && 'overflow-hidden rounded-lg border border-border-subtle bg-elevated/50',
-          !bare && fit === 'contain' ? 'p-2 md:p-3' : '',
-          aspect,
-          frameClassName,
-          className,
-        )}
+        className={cn('relative', !bare && 'overflow-hidden rounded-lg border border-border-subtle bg-elevated/50 p-2 md:p-3', aspect)}
       >
         <img
           src={src}
@@ -56,12 +45,8 @@ export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, clas
           onLoad={() => setLoaded(true)}
           onError={() => setLoaded(true)}
           className={cn(
-            'transition-opacity duration-700',
-            aspect
-              ? 'h-full w-full rounded-md object-contain'
-              : fit === 'contain'
-                ? 'h-auto w-full rounded-md object-contain'
-                : 'h-full w-full object-cover',
+            'w-full rounded-md object-contain transition-opacity duration-700',
+            aspect ? 'h-full' : 'h-auto',
             bare && 'rounded-none drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]',
             loaded ? 'opacity-100' : 'opacity-0',
           )}
