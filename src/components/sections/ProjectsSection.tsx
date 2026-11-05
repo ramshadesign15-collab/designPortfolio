@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { useLenis } from '@/components/layout/lenis-context'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { usePortfolio } from '@/hooks/usePortfolio'
 import type { Project } from '@/types/portfolio'
@@ -66,13 +66,23 @@ export function ProjectsSection() {
   // Accordion: one open at a time; all collapsed by default.
   const [openId, setOpenId] = useState<string | null>(null)
   const { scrollTo } = useLenis()
+  // Switching projects removes the open case study, which can sit thousands of px
+  // above the clicked band. Remember where the band was on screen, then after the
+  // re-render (before paint) scroll by exactly what disappeared so it stays put.
+  const anchor = useRef<{ id: string; top: number } | null>(null)
+  const bandTop = (id: string) => document.getElementById(`project-${id}`)?.getBoundingClientRect().top ?? 0
   const toggle = (id: string) => {
     const opening = openId !== id
+    if (opening && openId) anchor.current = { id, top: bandTop(id) }
     setOpenId(opening ? id : null)
-    // Closing a panel above shifts this band up out of view; bring it back once
-    // the 0.4s exit finishes. shortcut: fixed delay, switch to onExitComplete if timings change.
-    if (opening && openId) setTimeout(() => scrollTo(`#project-${id} button`, -80), 450)
   }
+  useLayoutEffect(() => {
+    const a = anchor.current
+    if (!a) return
+    anchor.current = null
+    const shift = bandTop(a.id) - a.top
+    if (shift) scrollTo(window.scrollY + shift, 0, true)
+  }, [openId, scrollTo])
 
   return (
     <section id="projects" className="relative">
@@ -101,22 +111,19 @@ export function ProjectsSection() {
                 onToggle={() => toggle(project.id)}
                 panelId={panelId}
               />
-              <AnimatePresence initial={false}>
-                {open && (
-                  <motion.div
-                    id={panelId}
-                    role="region"
-                    aria-label={`${project.title} case study`}
-                    key="panel"
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
-                  >
-                    <ProjectCaseStudy project={project} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {/* no exit animation: the closing panel must leave in the same frame as the scroll fix above */}
+              {open && (
+                <motion.div
+                  id={panelId}
+                  role="region"
+                  aria-label={`${project.title} case study`}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
+                >
+                  <ProjectCaseStudy project={project} />
+                </motion.div>
+              )}
             </div>
           )
         })}
