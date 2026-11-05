@@ -16,6 +16,8 @@ interface ProjectImageProps {
   className?: string
   frameClassName?: string
   priority?: boolean
+  /** No card frame: transparent cut-outs float on the page with a soft shadow. */
+  bare?: boolean
 }
 
 /**
@@ -23,7 +25,7 @@ interface ProjectImageProps {
  * 3D rotateY tilt. Default 'contain' renders the image at its natural ratio so
  * nothing is ever cropped. Pass `aspect` to force a uniform tile size.
  */
-export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, className, frameClassName, priority = false }: ProjectImageProps) {
+export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, className, frameClassName, priority = false, bare = false }: ProjectImageProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [loaded, setLoaded] = useState(false)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
@@ -37,8 +39,9 @@ export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, clas
         ref={ref}
         style={{ rotateY, transformStyle: 'preserve-3d' }}
         className={cn(
-          'relative overflow-hidden rounded-lg border border-border-subtle bg-elevated/50',
-          fit === 'contain' ? 'p-2 md:p-3' : '',
+          'relative',
+          !bare && 'overflow-hidden rounded-lg border border-border-subtle bg-elevated/50',
+          !bare && fit === 'contain' ? 'p-2 md:p-3' : '',
           aspect,
           frameClassName,
           className,
@@ -59,6 +62,7 @@ export function ProjectImage({ src, alt, fit = 'contain', aspect, tilt = 5, clas
               : fit === 'contain'
                 ? 'h-auto w-full rounded-md object-contain'
                 : 'h-full w-full object-cover',
+            bare && 'rounded-none drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]',
             loaded ? 'opacity-100' : 'opacity-0',
           )}
         />

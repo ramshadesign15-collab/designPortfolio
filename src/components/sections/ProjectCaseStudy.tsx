@@ -43,7 +43,7 @@ function OverviewSection({ section }: { section: CaseSection }) {
             // a lone last board sits centred under the pair above
             <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 2) * 0.08} className={cn(images.length % 2 === 1 && i === images.length - 1 && 'lg:col-span-2 lg:mx-auto lg:w-2/3')}>
               <figure>
-                <ProjectImage src={src} alt={captions[i] ?? `${section.title ?? 'Board'}, image ${i + 1}`} fit="contain" priority={i < 2} />
+                <ProjectImage src={src} alt={captions[i] ?? `${section.title ?? 'Board'}, image ${i + 1}`} fit="contain" priority={i < 2} bare={section.bare} />
                 {captions[i] && (
                   <figcaption className="mt-4 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
                     <span className="text-accent-1">{String(i + 1).padStart(2, '0')}</span>{captions[i]}

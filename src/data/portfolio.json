@@ -334,6 +334,7 @@
             "eyebrow": "Behind the Work",
             "title": "The Making",
             "layout": "showcase",
+            "bare": true,
             "body": [
               "From blank cotton to finished scroll  painting, layering, and hand-embroidering each section in small batches."
             ],
@@ -448,24 +449,16 @@
           },
           {
             "id": "vm",
-            "kind": "statement",
+            "kind": "overview",
             "title": "Vision & Mission",
-            "layout": "duo",
-            "statements": [
-              {
-                "label": "Vision",
-                "text": "To create a premium cushion collection that blends comfort, elegance, and artistic textile design  transforming everyday interiors into luxurious, expressive, emotionally warm spaces."
-              },
-              {
-                "label": "Mission",
-                "text": "To balance luxury, comfort, and functionality using premium fabrics, refined surface techniques, and elegant palettes for contemporary homemakers and young women."
-              }
+            "layout": "showcase",
+            "captions": [
+              "Vision",
+              "Mission"
             ],
             "images": [
-              "/assets/img/projects/regal-wilderness/statement-1.webp",
-              "/assets/img/projects/regal-wilderness/statement-2.webp",
-              "/assets/img/projects/regal-wilderness/statement-3.webp",
-              "/assets/img/projects/regal-wilderness/statement-4.webp"
+              "/assets/img/projects/regal-wilderness/vm-1.webp",
+              "/assets/img/projects/regal-wilderness/vm-2.webp"
             ]
           },
           {
@@ -564,14 +557,12 @@
             "kind": "gallery",
             "eyebrow": "The Result",
             "title": "The Shoot",
-            "layout": "wide",
+            "layout": "grid",
             "aspect": "aspect-[2/3]",
-            "width": "max-w-4xl",
             "body": [
               "The finished collection, styled in context as premium, collectible soft furnishings."
             ],
             "images": [
-              "/assets/img/projects/regal-wilderness/shoot-1.webp",
               "/assets/img/projects/regal-wilderness/shoot-2.webp",
               "/assets/img/projects/regal-wilderness/shoot-3.webp",
               "/assets/img/projects/regal-wilderness/shoot-4.webp"

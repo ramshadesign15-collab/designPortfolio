@@ -22,6 +22,8 @@ export interface CaseSection {
   /** Optional per-image captions, shown beneath each image in the 'showcase'
    *  overview layout so content-rich boards read as standalone, labelled pieces. */
   captions?: string[]
+  /** Render images frameless (no card) so cut-out / transparent images float on the page. */
+  bare?: boolean
   images?: string[]; specs?: SpecGroup[]; statements?: { label: string; text: string }[]
 }
 export interface CaseStudy { hero: string; intro: string; meta: ProjectMeta[]; palette: PaletteSwatch[]; sections: CaseSection[] }
