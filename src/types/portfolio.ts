@@ -8,10 +8,10 @@ export interface EducationItem { id: string; qualification: string; institution:
 export interface PaletteSwatch { name: string; hex: string }
 export interface ProjectMeta { label: string; value: string }
 export interface SpecGroup { label: string; items: string[] }
-export type CaseSectionLayout = 'grid' | 'wide' | 'collage' | 'showcase'
+export type CaseSectionLayout = 'grid' | 'wide' | 'showcase'
 export interface CaseSection {
   id: string
-  kind: 'overview' | 'moodboard' | 'spec' | 'gallery'
+  kind: 'overview' | 'spec' | 'gallery'
   eyebrow?: string; title?: string; body?: string[]; layout?: CaseSectionLayout
   /** Tailwind aspect-ratio class (e.g. 'aspect-square') to force uniform image
    *  tiles when a section's source images have mismatched native ratios. */
@@ -22,6 +22,8 @@ export interface CaseSection {
   /** Optional per-image captions, shown beneath each image in the 'showcase'
    *  overview layout so content-rich boards read as standalone, labelled pieces. */
   captions?: string[]
+  /** Tailwind classes nudging the image column of a two-column overview (e.g. 'md:mt-32' to sit lower). */
+  offset?: string
   /** Render images frameless (no card) so cut-out / transparent images float on the page. */
   bare?: boolean
   images?: string[]; specs?: SpecGroup[]

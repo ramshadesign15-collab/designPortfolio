@@ -1,5 +1,4 @@
 import { ArrowUpRight } from 'lucide-react'
-import { motion } from 'framer-motion'
 import type { CaseSection, Project } from '@/types/portfolio'
 import { Reveal } from '@/components/ui/Reveal'
 import { ProjectImage } from '@/components/ui/ProjectImage'
@@ -59,19 +58,8 @@ function OverviewSection({ section }: { section: CaseSection }) {
   return (
     <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
       <div className="md:sticky md:top-28 md:self-start"><SectionHeading section={section} /><Body paragraphs={section.body} /></div>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div className={cn('grid grid-cols-1 gap-5 sm:grid-cols-2', section.offset)}>
         {images.map((src, i) => (<Reveal key={src} variant={i % 2 === 0 ? 'right' : 'up'} delay={i * 0.08} className={cn(images.length === 1 && 'sm:col-span-2')}><ProjectImage src={src} alt={`${section.title ?? 'Project'}, image ${i + 1}`} aspect={section.aspect} /></Reveal>))}
-      </div>
-    </div>
-  )
-}
-function MoodboardSection({ section }: { section: CaseSection }) {
-  const images = section.images ?? []
-  return (
-    <div>
-      <SectionHeading section={section} /><Body paragraphs={section.body} />
-      <div className="mt-10 grid grid-cols-2 items-start gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {images.map((src, i) => (<Reveal key={src} variant="scale" delay={(i % 4) * 0.05}><motion.div whileHover={{ scale: 1.03, rotate: i % 2 === 0 ? 0.8 : -0.8 }} transition={{ type: 'spring', stiffness: 200, damping: 18 }}><ProjectImage src={src} alt={`Moodboard reference ${i + 1}`} tilt={3} /></motion.div></Reveal>))}
       </div>
     </div>
   )
@@ -107,8 +95,9 @@ function GallerySection({ section }: { section: CaseSection }) {
           order so numbered sequences (REPEAT 1…N) read in order. CSS columns
           fill column-first and scramble the visual sequence. */}
       <div className={cn('mt-10 grid items-start gap-5', wide ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-3', section.width && 'mx-auto', section.width)}>
+        {/* odd count on the 2-col phone grid: centre the last tile instead of leaving it hanging left */}
         {images.map((src, i) => (
-          <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 3) * 0.06} className={cn(images.length === 1 && 'col-span-full')}>
+          <Reveal key={src} variant={i % 2 === 0 ? 'up' : 'scale'} delay={(i % 3) * 0.06} className={cn(images.length === 1 && 'col-span-full', !wide && images.length > 1 && images.length % 2 === 1 && i === images.length - 1 && 'col-span-2 mx-auto w-[calc(50%-0.625rem)] md:col-span-1 md:w-auto')}>
             <ProjectImage src={src} alt={`${section.title ?? 'Gallery'}, image ${i + 1}`} aspect={aspect} tilt={4} />
           </Reveal>
         ))}
@@ -120,7 +109,6 @@ function GallerySection({ section }: { section: CaseSection }) {
 function renderSection(section: CaseSection, color: string) {
   switch (section.kind) {
     case 'overview': return <OverviewSection section={section} />
-    case 'moodboard': return <MoodboardSection section={section} />
     case 'spec': return <SpecSection section={section} color={color} />
     case 'gallery': return <GallerySection section={section} />
     default: return null
